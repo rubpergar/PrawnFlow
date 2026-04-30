@@ -2,6 +2,8 @@
 
 Record lasting project or agent-workflow decisions that future tasks should reuse.
 
+Do not add decisions automatically. Before adding a new decision, ask the user for approval and include a short summary of the decision that would be recorded. Only write the decision after the user approves it.
+
 ## Format
 
 ```md

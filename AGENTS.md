@@ -89,7 +89,8 @@ Product implementation starts only when there is exactly one task under `## Curr
    - API changes update `agents/docs/api.md`.
    - DB changes update `agents/db/schema.sql` and rollback/migration notes.
    - Reusable UI rules update `agents/docs/design.md`.
-   - Lasting decisions update `agents/docs/decisions.md`.
+   - Before adding a lasting decision to `agents/docs/decisions.md`, ask the user for approval and include a short summary of the decision that would be recorded.
+   - Add the decision to `agents/docs/decisions.md` only after the user approves it.
 
 7. Close out
    - Ask before marking the backlog task done.
