@@ -52,6 +52,7 @@ Use a skill only when its trigger matches the request. Project stack and source-
 | Frontend Design | `agents/skills/frontend-design/SKILL.md` | Creating or polishing UI components, pages, layout, typography, spacing, motion, or visual hierarchy | Backend-only, test-only, or purely technical SEO work |
 | Web Design Guidelines | `agents/skills/web-design-guidelines/SKILL.md` | Reviewing UI/accessibility/usability before shipping, or when explicitly asked for a UI review | Early ideation, backend-only work, non-UI changes |
 | SEO Audit | `agents/skills/seo-audit/SKILL.md` | Auditing public pages for crawlability, indexation, metadata, content structure, Core Web Vitals, internal links, schema, or rankings | Private dashboards, backend-only work, UI polish without SEO scope |
+| Conventional Commit | `agents/skills/conventional-commit/SKILL.md` | Only when the user asks to make a commit | Any request that does not explicitly ask for a commit |
 
 Frontend precedence: `ui-ux-pro-max` for product UX, `frontend-design` for visual implementation, `web-design-guidelines` for review. Do not load every UI skill by default.
 
