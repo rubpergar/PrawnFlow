@@ -1,5 +1,7 @@
 # AGENTS.md
 
+Placeholders in this file must be filled in after copying the template into a real project. They provide the minimum project context the agent needs to work correctly. Delete this message after completion.
+
 ## Project
 Fill this section after copying the template into a real project.
 - Product:
