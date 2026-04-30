@@ -61,9 +61,14 @@ Use a skill only when its trigger matches the request. Project stack and source-
 | Frontend Design | `agents/skills/frontend-design/SKILL.md` | Creating or polishing UI components, pages, layout, typography, spacing, motion, or visual hierarchy | Backend-only, test-only, or purely technical SEO work |
 | Web Design Guidelines | `agents/skills/web-design-guidelines/SKILL.md` | Reviewing UI/accessibility/usability before shipping, or when explicitly asked for a UI review | Early ideation, backend-only work, non-UI changes |
 | SEO Audit | `agents/skills/seo-audit/SKILL.md` | Auditing public pages for crawlability, indexation, metadata, content structure, Core Web Vitals, internal links, schema, or rankings | Private dashboards, backend-only work, UI polish without SEO scope |
+| Code Review Excellence | `agents/skills/code-review-excellence/SKILL.md` | Reviewing code changes, PRs, architecture-sensitive diffs, or when explicitly asked for a code review | Implementing code directly, formatting-only checks, or replacing automated lint/tests |
+| Security Review | `agents/skills/security-review/SKILL.md` | Reviewing authentication, authorization, data flow, secrets, user input, API security, infrastructure config, or when explicitly asked for a security review | Theoretical hardening without code context, test-only files unless requested, or broad security rewrites outside an approved plan |
+| Performance | `agents/skills/performance/SKILL.md` | Auditing or improving page load, Core Web Vitals, bundle/resource loading, runtime jank, images, fonts, caching, or web performance regressions | Premature optimization, backend-only work with no web performance impact, or memoization/refactors without measured bottlenecks |
+| Accessibility | `agents/skills/accessibility/SKILL.md` | Auditing or improving WCAG/accessibility, keyboard behavior, focus, semantic HTML, forms, ARIA, contrast, motion, or UI accessibility regressions | Backend-only work, purely visual polish without accessibility impact, or replacing project design rules |
 | Conventional Commit | `agents/skills/conventional-commit/SKILL.md` | Only when the user asks to make a commit | Any request that does not explicitly ask for a commit |
 
 Frontend precedence: `ui-ux-pro-max` for product UX, `frontend-design` for visual implementation, `web-design-guidelines` for review. Do not load every UI skill by default.
+Quality precedence: use `security-review` for exploitable security analysis, `performance` for measured web performance work, `accessibility` for WCAG/accessibility concerns, and `code-review-excellence` for general code review. Project source-of-truth docs and approved task plans override skill assumptions.
 
 ## SDD Workflow
 Product implementation starts only when there is exactly one task under `## Current` in `agents/task/backlog.md`.
