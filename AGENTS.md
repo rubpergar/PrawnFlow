@@ -1,9 +1,18 @@
 # AGENTS.md
 
-Placeholders in this file must be filled in after copying the template into a real project. They provide the minimum project context the agent needs to work correctly. Delete this message after completion.
+This repository is an agent skeleton. Blank fields are intentional until the skeleton is copied into a real project.
+
+## Template State
+- Mode: `skeleton | project`
+- Current mode: `skeleton`
+- Blank project fields mean `unknown / not configured yet`; never infer or invent them.
+- In `skeleton` mode, template and agent-maintenance changes may be made directly when explicitly requested by the user.
+- In `project` mode, fill the sections below before product implementation starts.
+- If required project context is blank during product work, ask the user for the missing value or record it as an approved assumption in the task plan.
+- Do not replace blanks with guessed values from package files, filenames, or common conventions unless the user approves that inference.
 
 ## Project
-Fill this section after copying the template into a real project.
+Fill this section after copying the template into a real project. Leave fields blank while the repository is only being maintained as a skeleton.
 - Product:
 - Domain:
 - Users:
@@ -21,9 +30,12 @@ Fill only what applies.
 ## Operating Rules
 - Product behavior changes require the SDD workflow below.
 - Template/agent-maintenance changes may be done directly when the user explicitly asks.
+- Skeleton maintenance is not product implementation and does not require a backlog task, plan, or checklist unless the user asks for that workflow.
 - Exploratory, advisory, review-only, or planning-only requests do not change code unless the user asks for edits.
 - Keep changes scoped to the active task or the explicitly requested maintenance.
 - Prefer updating stable source-of-truth docs over duplicating instructions.
+- Project source-of-truth docs and approved task plans override skill guidance when they conflict.
+- Treat blank fields, placeholder markers, and `not available` commands as missing configuration, not as instructions to improvise.
 
 ## Token Budget
 - Communicate with the user in Spanish unless they request another language.
@@ -124,17 +136,17 @@ Product implementation starts only when there is exactly one task under `## Curr
 - Never expose secrets, tokens, credentials, private keys, or production-like sensitive data.
 
 ## Commands
-Replace placeholders during project setup.
+Replace skeleton values during project setup. Use `not available` when a command does not exist, with a short fallback note.
 
 | Purpose | Command | Notes |
 |---|---|---|
-| Install | ... | Package manager and lockfile policy |
-| Dev server | ... | Port and env requirements |
-| Targeted tests | ... | Example command required |
-| Full test suite | ... | Required services/fixtures |
-| Lint | ... | Required before closeout when available |
-| Typecheck | ... | Required before closeout when available |
-| Build | ... | Required for UI/API changes when available |
+| Install | not configured | Package manager and lockfile policy |
+| Dev server | not configured | Port and env requirements |
+| Targeted tests | not configured | Example command required |
+| Full test suite | not configured | Required services/fixtures |
+| Lint | not configured | Required before closeout when available |
+| Typecheck | not configured | Required before closeout when available |
+| Build | not configured | Required for UI/API changes when available |
 
 ## Code Conventions
 - Prefer existing patterns and local helpers.
