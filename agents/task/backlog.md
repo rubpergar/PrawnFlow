@@ -15,9 +15,8 @@ When work starts on a current task, create:
 When the task is complete and the user approves closeout, move the task to `## Done` and move its task files to `agents/task/archive/`.
 
 ## Current
-
+- [ ] TASK-001: Environment setup
 
 ## To do
-- [ ] TASK-001: Environment setup
 
 ## Done
