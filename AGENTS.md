@@ -23,6 +23,13 @@ Fill only what applies.
 - Keep changes scoped to the active task or the explicitly requested maintenance.
 - Prefer updating stable source-of-truth docs over duplicating instructions.
 
+## Token Budget
+- Communicate with the user in Spanish unless they request another language.
+- Keep progress updates brief and only send them for meaningful discoveries, blockers, edits, or validation results.
+- Avoid restating context already present in the conversation.
+- Prefer concise final responses: outcome, changed files, validation, and relevant caveats.
+- Do not use intentionally degraded or overly terse language if it reduces correctness or clarity.
+
 ## Source of Truth Map
 Read the smallest useful set. Use this table to decide what to open, not as a mandatory read list.
 
