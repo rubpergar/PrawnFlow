@@ -46,7 +46,7 @@ Do not modify files solely to fix mojibake that only appears in Codex terminal o
 ### Consequences
 Codex should mention terminal-only mojibake as a possible display artifact, then proceed without churn. Encoding fixes require explicit evidence that the repository file itself is wrong.
 
-## DEC-002: Use task-specific plan and checklist files for SDD
+## DEC-003: Use task-specific plan and checklist files for SDD
 Date: 2026-04-29
 Status: accepted
 
