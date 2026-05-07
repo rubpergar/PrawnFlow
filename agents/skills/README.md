@@ -42,6 +42,22 @@ Original source/license: <source and license>
 - Upstream license checked: not available from current repository metadata.
 - Practical status: treat as internal-only until provenance is recorded, or rewrite it as original project guidance because the content is small and generic.
 
+### `context7-mcp`
+- Local path: `agents/skills/context7-mcp/`
+- Lock source: local user-level skill copy.
+- Lock source path: `C:/Users/rupg2/.agents/skills/context7-mcp/SKILL.md`.
+- Local license signal: no local license/front matter license found.
+- Upstream license checked: not available from current repository metadata.
+- Practical status: treat as internal-only until provenance is recorded. This skill requires Context7 MCP tooling configured in the agent runtime; do not store API keys or credentials in this repository.
+
+### `find-skills`
+- Local path: `agents/skills/find-skills/`
+- Lock source: local user-level skill copy.
+- Lock source path: `C:/Users/rupg2/.agents/skills/find-skills/SKILL.md`.
+- Local license signal: no local license/front matter license found.
+- Upstream license checked: not available from current repository metadata.
+- Practical status: treat as internal-only until provenance is recorded.
+
 ### `interface-design`
 - Local path: `agents/skills/interface-design/`
 - Lock source: internal consolidation.
