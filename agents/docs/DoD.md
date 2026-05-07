@@ -9,7 +9,7 @@ A task is done when all applicable items are true.
 
 ## Tests and Validation
 - Relevant tests were added or updated.
-- The first relevant failing test was observed when feasible.
+- TDD evidence or approved exception is recorded for behavior changes.
 - Affected tests pass.
 - Lint/typecheck/build pass when available and relevant.
 - Any command that could not run is recorded with reason and residual risk.

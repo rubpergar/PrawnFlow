@@ -33,7 +33,7 @@ Reusable starter for projects that want an agent to work with spec-driven develo
 5. Add exactly one task under `## Current` in `agents/task/backlog.md` when implementation should begin.
 6. Create and approve `agents/task/TASK-XXX-plan.md`.
 7. Create `agents/task/TASK-XXX-checklist.md`.
-8. Implement with TDD, validate against `agents/docs/DoD.md`, then ask before backlog closeout/archive moves.
+8. Load the TDD skill for implementation, validate against `agents/docs/DoD.md`, then ask before backlog closeout/archive moves.
 
 ## Core Rule
 
@@ -58,7 +58,7 @@ Template maintenance may be done directly only when the user explicitly asks to 
 ## Context Budget
 
 Keep reads narrow:
-- Implementation: `AGENTS.md`, backlog current entry, task plan, task checklist, `DoD.md`, `testing.md`, plus affected source-of-truth docs.
+- Implementation: `AGENTS.md`, backlog current entry, task plan, task checklist, TDD skill, `DoD.md`, `testing.md`, plus affected source-of-truth docs.
 - API only: add `agents/docs/api.md`.
 - DB only: add `agents/db/*`.
 - UI only: add `agents/docs/design.md` and one matching UI skill.

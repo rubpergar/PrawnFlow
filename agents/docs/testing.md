@@ -2,6 +2,8 @@
 
 Customize before product implementation. If a command is unavailable, write `not available` and explain the fallback.
 
+This file defines project-specific testing logistics. Use `agents/skills/test-driven-development/SKILL.md` as the authority for the TDD workflow itself.
+
 ## Commands
 | Purpose | Command |
 |---|---|
@@ -26,12 +28,10 @@ Customize before product implementation. If a command is unavailable, write `not
 - E2E:
 - Fixtures/utilities:
 
-## TDD Rules
-- Write the smallest failing test before production code when feasible.
-- Confirm the failure is for the expected missing behavior.
-- Implement the smallest passing change.
-- Refactor only while tests stay green.
-- Document approved exceptions in the task plan and checklist.
+## TDD Coordination
+- Load the TDD skill once before implementation code when the task changes behavior or refactors behavior-preserving code.
+- Use the commands and locations in this guide while following the skill's red/green/refactor cycle.
+- Record any approved TDD exception in the task plan and checklist before implementing under that exception.
 
 ## Test Quality
 - Prefer deterministic fixtures.

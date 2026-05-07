@@ -14,38 +14,37 @@ Copy to `agents/task/TASK-XXX-checklist.md` after the task plan is approved. Do 
 - Mark completed items during implementation.
 - If an item changes, keep a note explaining why.
 - Record commands that cannot run, the reason, and residual risk.
+- Add one TDD ledger row per planned behavior/subtask; keep details short unless blocked or exceptional.
 
 ## Checklist
 
 ### 1. Context
 - [ ] Read the approved plan.
 - [ ] Read referenced source-of-truth docs.
+- [ ] Load `agents/skills/test-driven-development/SKILL.md`, or record why it does not apply.
 - [ ] Read `agents/docs/testing.md`.
 - [ ] Read `agents/docs/DoD.md`.
 - [ ] Confirm no open questions block implementation.
 - [ ] Check for relevant unexpected worktree changes.
 
-### 2. Tests First
-- [ ] Identify the first behavior to test.
-- [ ] Add failing test for:
-- [ ] Confirm failure is expected.
-- [ ] Add edge-case tests from the plan.
-- [ ] Record approved TDD exceptions:
+### 2. TDD Ledger
 
-### 3. Implementation
-- [ ] Implement the smallest passing change.
-- [ ] Re-run targeted tests.
-- [ ] Repeat red/green/refactor for remaining behavior.
-- [ ] Refactor only while tests stay green.
-- [ ] Keep changes within scope.
+Add one row per behavior/subtask from the approved plan. Follow the TDD skill for the actual methodology; keep rows concise and expand only for failures, blockers, or approved exceptions.
 
-### 4. Data/API/UI/Docs
+| Behavior/Subtask | RED command/result | GREEN command/result | Refactor | Notes/exception |
+|---|---|---|---|---|
+| ... | ... | ... | yes/no | ... |
+
+### 3. Scope and Docs
+- [ ] All planned TDD cycles are complete or documented as approved exceptions.
+- [ ] Changes stayed within approved scope.
+- [ ] No unrelated refactors.
 - [ ] DB changes done, migration and rollback notes recorded, or not applicable.
 - [ ] API contracts updated, or not applicable.
 - [ ] UI follows `agents/docs/design.md` and relevant skill, or not applicable.
 - [ ] Durable decisions documented, or not applicable.
 
-### 5. Validation
+### 4. Validation
 - [ ] Targeted tests:
 - [ ] Full test suite:
 - [ ] Lint:
@@ -53,7 +52,7 @@ Copy to `agents/task/TASK-XXX-checklist.md` after the task plan is approved. Do 
 - [ ] Build:
 - [ ] DoD checked:
 
-### 6. Closeout
+### 5. Closeout
 - [ ] Plan status updated to `validated`, or remaining validation gap documented.
 - [ ] Final response includes changes, validation, and residual risk.
 - [ ] Ask user before marking backlog task done.

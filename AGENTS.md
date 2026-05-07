@@ -55,7 +55,7 @@ Read the smallest useful set. Use this table to decide what to open, not as a ma
 | Plan template | `agents/task/plan.md` | Template for task-specific plans | Creating a new task plan |
 | Checklist template | `agents/task/checklist.md` | Template for task-specific checklists | Creating a new task checklist |
 | Acceptance | `agents/docs/DoD.md` | Definition of done and closeout gates | Before validation and closeout |
-| Testing | `agents/docs/testing.md` | Test commands, locations, fixtures, validation rules | Adding/running tests or validating work |
+| Testing | `agents/docs/testing.md` | Project-specific test commands, locations, fixtures, and validation rules | Adding/running tests or validating work |
 | Decisions | `agents/docs/decisions.md` | Durable product, technical, and workflow decisions recorded as ADRs | Planning product work, a durable decision is needed, or past rationale matters |
 | API contracts | `agents/docs/api.md` | Public routes, payloads, errors, compatibility | API routes, clients, payloads, or contracts are affected |
 | DB schema | `agents/db/schema.sql` | Current database structure | Persistence, migrations, queries, or schema are affected |
@@ -68,7 +68,7 @@ Use a skill only when its trigger matches the request. Project stack and source-
 
 | Skill | Path | Use when | Avoid when |
 |---|---|---|---|
-| Test-Driven Development | `agents/skills/test-driven-development/SKILL.md` | Implementing features, bug fixes, behavior changes, or behavior-preserving refactors | Docs-only, planning-only, config-only changes with no behavior |
+| Test-Driven Development | `agents/skills/test-driven-development/SKILL.md` | Load once before implementation code for features, bug fixes, behavior changes, or behavior-preserving refactors; it is the TDD methodology authority | Docs-only, planning-only, config-only changes with no behavior |
 | Interface Design | `agents/skills/interface-design/SKILL.md` | Designing, implementing, improving, or reviewing UI/UX, frontend visuals, responsive behavior, interaction states, forms, navigation, dashboards, components, and accessibility tied to UI | Backend-only work, SEO-only audits, security review, brand identity-only work, image generation, or measured performance optimization |
 | SEO Audit | `agents/skills/seo-audit/SKILL.md` | Auditing public pages for crawlability, indexation, metadata, content structure, Core Web Vitals, internal links, schema, or rankings | Private dashboards, backend-only work, UI polish without SEO scope |
 | Code Review Excellence | `agents/skills/code-review-excellence/SKILL.md` | Reviewing code changes, PRs, architecture-sensitive diffs, or when explicitly asked for a code review | Implementing code directly, formatting-only checks, or replacing automated lint/tests |
@@ -100,11 +100,11 @@ Product implementation starts only when there is exactly one task under `## Curr
    - Derive checklist items from the approved plan only.
 
 4. Implement with TDD
-   - Read the task plan, checklist, `agents/docs/testing.md`, and relevant source-of-truth files.
-   - Add or update a failing test first when feasible.
-   - Confirm the failure reason, implement the smallest passing change, then refactor while green.
+   - Load `agents/skills/test-driven-development/SKILL.md` once at the start of implementation and follow it for the red/green/refactor process.
+   - Read the approved task plan, checklist, `agents/docs/testing.md`, and relevant source-of-truth files.
+   - Use `agents/docs/testing.md` only for project-specific commands, locations, fixtures, and validation requirements.
    - Mark checklist items as they are completed.
-   - If TDD is not feasible, use only exceptions documented in the approved plan.
+   - If test-first work is not feasible, stop unless the exception is already documented in the approved plan and checklist.
 
 5. Validate
    - Run targeted tests, then full validation commands when available.
