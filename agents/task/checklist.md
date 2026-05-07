@@ -57,7 +57,7 @@ Copy to `agents/task/TASK-XXX-checklist.md` after the task plan is approved. Do 
 - [ ] Plan status updated to `validated`, or remaining validation gap documented.
 - [ ] Final response includes changes, validation, and residual risk.
 - [ ] Ask user before marking backlog task done.
-- [ ] Ask user before moving task files to `agents/task/archive/`.
+- [ ] Move task files to `agents/task/archive/` after the user approves marking the task done.
 
 ## Resume Notes
 ...

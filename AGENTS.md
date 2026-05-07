@@ -118,7 +118,7 @@ Product implementation starts only when there is exactly one task under `## Curr
 
 7. Close out
    - Ask before marking the backlog task done.
-   - Ask before moving task files to `agents/task/archive/`.
+   - When the user approves marking a task done, move its task plan/checklist files to `agents/task/archive/` in the same closeout step.
    - Do not create branches or commits unless the user asks.
 
 ## Boundaries

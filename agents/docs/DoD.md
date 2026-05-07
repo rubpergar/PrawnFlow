@@ -32,4 +32,4 @@ Update only when the durable contract changes:
 
 ## Closeout
 - User approved backlog completion.
-- User approved archiving task plan/checklist.
+- Task plan/checklist were moved to `agents/task/archive/` in the same closeout step.
