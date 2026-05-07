@@ -56,7 +56,7 @@ Read the smallest useful set. Use this table to decide what to open, not as a ma
 | Checklist template | `agents/task/checklist.md` | Template for task-specific checklists | Creating a new task checklist |
 | Acceptance | `agents/docs/DoD.md` | Definition of done and closeout gates | Before validation and closeout |
 | Testing | `agents/docs/testing.md` | Test commands, locations, fixtures, validation rules | Adding/running tests or validating work |
-| Decisions | `agents/docs/decisions.md` | Durable product, technical, and workflow decisions | A decision is needed or past rationale matters |
+| Decisions | `agents/docs/decisions.md` | Durable product, technical, and workflow decisions recorded as ADRs | Planning product work, a durable decision is needed, or past rationale matters |
 | API contracts | `agents/docs/api.md` | Public routes, payloads, errors, compatibility | API routes, clients, payloads, or contracts are affected |
 | DB schema | `agents/db/schema.sql` | Current database structure | Persistence, migrations, queries, or schema are affected |
 | DB domain | `agents/db/domain.md` | Domain vocabulary, relationships, business rules | Data model or business rules are affected |
@@ -89,8 +89,10 @@ Product implementation starts only when there is exactly one task under `## Curr
    - If `## Current` has zero or multiple tasks, ask the user to select or create one.
 
 2. Plan
+   - Read relevant accepted ADRs in `agents/docs/decisions.md` before proposing behavior or implementation choices.
    - Create/update `agents/task/TASK-XXX-plan.md` from `agents/task/plan.md`.
    - Resolve behavior, data, security, API, and user-facing UX questions before implementation.
+   - If a durable decision may be needed, include an ADR proposal in the plan instead of writing directly to `agents/docs/decisions.md`.
    - Do not implement until the user approves the task-specific plan.
 
 3. Checklist
@@ -115,8 +117,7 @@ Product implementation starts only when there is exactly one task under `## Curr
    - API changes update `agents/docs/api.md`.
    - DB changes update `agents/db/schema.sql` and rollback/migration notes.
    - Reusable UI rules update `agents/docs/design.md`.
-   - Before adding a lasting decision to `agents/docs/decisions.md`, ask the user for approval and include a short summary of the decision that would be recorded.
-   - Add the decision to `agents/docs/decisions.md` only after the user approves it.
+   - Lasting decisions may update `agents/docs/decisions.md` only after explicit user approval.
 
 7. Close out
    - Ask before marking the backlog task done.

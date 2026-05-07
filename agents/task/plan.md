@@ -57,6 +57,11 @@ Out:
 ## Assumptions
 - ...
 
+## Decision Records
+- Relevant accepted ADRs read from `agents/docs/decisions.md`:
+- Proposed durable decisions that may need user approval before recording:
+- Task-local choices that should not become ADRs:
+
 ## Risks and Dependencies
 - ...
 

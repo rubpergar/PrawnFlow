@@ -28,7 +28,8 @@ Update only when the durable contract changes:
 - `agents/db/domain.md` for domain rules.
 - `agents/docs/design.md` for reusable UI rules.
 - `agents/docs/testing.md` for validation rules or commands.
-- `agents/docs/decisions.md` for lasting decisions.
+- `agents/docs/decisions.md` for user-approved lasting ADRs only.
+- Durable decisions identified during the task were either approved and recorded as ADRs, or deliberately left in the task plan/checklist because the user declined or they were task-local.
 
 ## Closeout
 - User approved backlog completion.
