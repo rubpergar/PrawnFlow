@@ -1,25 +1,26 @@
 # AGENTS.md
 
-This repository is an agent skeleton. Blank fields are intentional until the skeleton is copied into a real project.
+This repository starts as an agent skeleton and can be prepared for active project work.
 
-## Template State
-- Mode: `skeleton | project`
-- Current mode: `skeleton`
-- Blank project fields mean `unknown / not configured yet`; never infer or invent them.
-- In `skeleton` mode, template and agent-maintenance changes may be made directly when explicitly requested by the user.
-- In `project` mode, fill the sections below before product implementation starts.
-- If required project context is blank during product work, ask the user for the missing value or record it as an approved assumption in the task plan.
-- Do not replace blanks with guessed values from package files, filenames, or common conventions unless the user approves that inference.
+## Mode
+
+Current mode: `skeleton`.
+
+This repository is in agent bootstrap mode. Product implementation is not allowed.
+
+For skeleton-mode scope, required setup information, validation, and transition to project mode, follow `agents/docs/bootstrap.md`.
+
+Do not modify product source code or unrelated files unless `agents/docs/bootstrap.md` explicitly allows it or the user explicitly requests it.
 
 ## Project
-Fill this section after copying the template into a real project. Leave fields blank while the repository is only being maintained as a skeleton.
+Fill this section during bootstrap. Leave fields blank only while they are unknown or not configured yet.
 - Product:
 - Domain:
 - Users:
 - Goal:
 
 ## Stack
-Fill only what applies.
+Fill only what applies during bootstrap.
 - Runtime/framework:
 - Package manager:
 - Database:
@@ -36,6 +37,7 @@ Fill only what applies.
 - Prefer updating stable source-of-truth docs over duplicating instructions.
 - Project source-of-truth docs and approved task plans override skill guidance when they conflict.
 - Treat blank fields, placeholder markers, and `not available` commands as missing configuration, not as instructions to improvise.
+- Archived bootstrap documents are historical references only and must not be followed unless the user explicitly requests bootstrap maintenance or review.
 
 ## Token Budget
 - Communicate with the user in Spanish unless they request another language.
@@ -49,6 +51,7 @@ Read the smallest useful set. Use this table to decide what to open, not as a ma
 
 | Area | File | Purpose | Read when |
 |---|---|---|---|
+| Bootstrap | `agents/docs/bootstrap.md` | Skeleton-mode setup scope, readiness, and transition to project mode | Current mode is `skeleton` or user requests bootstrap maintenance |
 | Active task | `agents/task/backlog.md` | Queue and current task selection | Planning or implementing product work |
 | Task plan | `agents/task/TASK-XXX-plan.md` | Approved scope and behavior contract | Implementing or validating the active task |
 | Task checklist | `agents/task/TASK-XXX-checklist.md` | Execution ledger and resume point | Implementing or resuming the active task |
