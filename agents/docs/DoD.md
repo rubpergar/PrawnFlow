@@ -9,7 +9,7 @@ A task is done when all applicable items are true.
 
 ## Tests and Validation
 - Relevant tests were added or updated.
-- The first relevant failing test was observed when feasible.
+- TDD evidence or approved exception is recorded for behavior changes.
 - Affected tests pass.
 - Lint/typecheck/build pass when available and relevant.
 - Any command that could not run is recorded with reason and residual risk.
@@ -28,8 +28,15 @@ Update only when the durable contract changes:
 - `agents/db/domain.md` for domain rules.
 - `agents/docs/design.md` for reusable UI rules.
 - `agents/docs/testing.md` for validation rules or commands.
-- `agents/docs/decisions.md` for lasting decisions.
+- `agents/docs/decisions.md` for user-approved lasting ADRs only.
+- Durable decisions identified during the task were either approved and recorded as ADRs, or deliberately left in the task plan/checklist because the user declined or they were task-local.
+
+## Context Hygiene
+- Remove temporary files, debug logs, scratch scripts, generated outputs, and local test artifacts created during the task unless they are intentionally promoted to project files.
+- Do not delete files created or modified by the user.
+- If an artifact may be useful later, ask whether to keep, document, or remove it.
+- Before closeout or commit, ensure `git status` contains only intentional changes.
 
 ## Closeout
 - User approved backlog completion.
-- User approved archiving task plan/checklist.
+- Task plan/checklist were moved to `agents/task/archive/` in the same closeout step.
