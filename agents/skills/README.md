@@ -2,11 +2,11 @@
 
 This directory contains optional agent skills used by the skeleton. Skills are loaded only when their trigger matches the task.
 
-`skills-lock.json` is the technical install record: it stores the upstream source, source path, and computed hash for each active skill. Keep it unless the skill installation mechanism is replaced, because this README is a human-facing license/provenance summary rather than a lock file.
+The canonical skills lock file is `skills-lock.json` in the repository root. It is the technical install record: it stores the upstream source, source path, and computed hash for each active skill. Keep it unless the skill installation mechanism is replaced, because this README is a human-facing license/provenance summary rather than a lock file.
 
 ## License Policy
 - Keep each skill's original license and attribution files with the skill.
-- Before modifying a skill, check its front matter, local `LICENSE`/`NOTICE` files, this README, and `skills-lock.json`.
+- Before modifying a skill, check its front matter, local `LICENSE`/`NOTICE` files, this README, and the root `skills-lock.json`.
 - Internal company adaptations are allowed when the upstream license permits modification, but keep attribution and mark substantial changes.
 - Do not redistribute, publish, sell, or deliver this skeleton externally until all included skill licenses and notices have been reviewed.
 - If a skill has no local license file but its upstream repository license is known, preserve the upstream reference here and consider copying the license file into the skill directory.
@@ -36,7 +36,7 @@ Original source/license: <source and license>
 
 ### `conventional-commit`
 - Local path: `agents/skills/conventional-commit/`
-- Lock source: not present in `skills-lock.json`.
+- Lock source: not present in the root `skills-lock.json`.
 - Lock source path: not recorded.
 - Local license signal: no local license/front matter license found.
 - Upstream license checked: not available from current repository metadata.
