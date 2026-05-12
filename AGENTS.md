@@ -6,7 +6,7 @@ This repository starts as an agent skeleton and can be prepared for active proje
 
 Current mode: `skeleton`.
 
-This repository is in agent bootstrap mode. Product implementation is not allowed.
+This repository is in agent bootstrap mode. Product feature implementation is not allowed.
 
 For skeleton-mode scope, required setup information, validation, and transition to project mode, follow `agents/docs/bootstrap.md`.
 
@@ -32,6 +32,7 @@ Fill only what applies during bootstrap.
 - Product behavior changes require the SDD workflow below.
 - Template/agent-maintenance changes may be done directly when the user explicitly asks.
 - Skeleton maintenance is not product implementation and does not require a backlog task, plan, or checklist unless the user asks for that workflow.
+- New project initialization in `skeleton` mode requires explicit user approval and must follow `agents/docs/bootstrap.md`.
 - Exploratory, advisory, review-only, or planning-only requests do not change code unless the user asks for edits.
 - Keep changes scoped to the active task or the explicitly requested maintenance.
 - Prefer updating stable source-of-truth docs over duplicating instructions.
