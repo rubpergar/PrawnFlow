@@ -77,6 +77,7 @@ Before switching to `project` mode, fill applicable fields:
 - `agents/docs/DoD.md`: definition of done
 - `agents/docs/decisions.md`: durable decisions
 - `agents/docs/api.md`, `agents/db/schema.sql`, `agents/db/domain.md`, `agents/docs/design.md` when those areas apply
+- `AGENTS.md` Document Ownership table: verify owners and approval requirements match the project team structure
 
 Do not infer missing facts without user approval. Treat blanks and `not available` as missing config.
 
