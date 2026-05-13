@@ -15,7 +15,7 @@ Copy to `agents/task/TASK-XXX-checklist.md` after the task plan is approved. Do 
 
 ### 1. Context
 - [ ] Read the approved plan and referenced source-of-truth docs.
-- [ ] Load `agents/skills/test-driven-development/SKILL.md`, or record why it does not apply.
+- [ ] Read and apply `agents/skills/test-driven-development/SKILL.md`, or record why it does not apply.
 - [ ] Confirm no open questions block implementation.
 
 ### 2. TDD Ledger
