@@ -1,106 +1,96 @@
 # Bootstrap
 
-This document is the source of truth for `skeleton` mode. It defines how to prepare this agent skeleton for a real project before switching to `project` mode.
+Source of truth for `skeleton` mode. Defines how to prepare the agent skeleton for a real project before switching to `project` mode.
 
 ## Purpose
 
-Use bootstrap mode to configure the agent with enough verified project context to work without avoidable uncertainty. Bootstrap is not product feature implementation.
+Configure the agent with enough verified context to work without avoidable uncertainty. Bootstrap is not product implementation.
 
 ## Allowed Scope
 
-In `skeleton` mode, changes are limited to agent and workflow setup unless the user explicitly expands the scope.
+Limited to agent and workflow setup unless the user explicitly expands scope.
 
-Allowed by default:
-- `AGENTS.md`
-- `agents/**`
-- Documentation required to configure the agent workflow
-- Task, plan, checklist, and source-of-truth templates
+**Allowed:**
+- `AGENTS.md`, `agents/**`
+- Agent workflow documentation, task/plan/checklist templates
 
-Not allowed by default:
-- Product source code
-- Application configuration
-- Dependencies or lockfiles
-- Database migrations or schema changes outside `agents/db/**` documentation
-- Tests for product behavior
-- Runtime, build, deployment, or infrastructure files
+**Not allowed:**
+- Product source code, application config, dependencies, lockfiles
+- DB migrations outside `agents/db/**`, product tests, runtime/build/deploy files
 
-Only modify files outside the allowed scope when the user explicitly requests that change.
+Only modify files outside allowed scope when the user requests it.
 
 ## Skeleton Work Types
 
-Skeleton mode supports three kinds of work. Keep them separate so the agent does not confuse setup with product delivery.
+Three kinds of work. Keep separate from product delivery.
 
-Agent bootstrap:
+**Agent bootstrap:**
 - Configure `AGENTS.md` and files under `agents/**`.
-- Add or update agent skills, routing, lockfiles, templates, and workflow documentation.
-- Record project facts, commands, testing rules, decisions, domain notes, API contracts, DB documentation, and design rules.
+- Add/update skills, routing, lockfiles, templates, workflow docs.
+- Record project facts, commands, testing rules, decisions, domain notes, API contracts, DB docs, design rules.
 
-Existing project discovery:
-- Read the existing repository to identify stack, commands, architecture, domain concepts, and validation rules.
-- Update agent documentation with verified facts.
-- Mark uncertain conclusions as assumptions and ask the user before treating them as authoritative.
-- Do not modify product source code during discovery unless the user explicitly requests it.
+**Existing project discovery:**
+- Follow `agents/docs/adoption.md`.
+- Read repo to identify stack, commands, architecture, domain, validation rules.
+- Update agent docs with verified facts.
+- Mark uncertain conclusions as assumptions; ask before treating as authoritative.
+- Do not modify product source code unless the user explicitly requests it.
 
-New project initialization:
-- Help the user choose and instantiate the technical base for a project starting from zero.
-- Requires explicit user approval and a short initialization plan before touching files outside `agents/**`.
-- May create infrastructure, configuration, dependencies, and scaffold files needed for the approved stack.
-- Must not implement product features or domain behavior beyond minimal placeholders required by the scaffold.
+**New project initialization:**
+- Help choose and instantiate the technical base for a zero-start project.
+- Requires explicit user approval and a short plan before touching files outside `agents/**`.
+- May create infra, config, dependencies, and scaffold files for the approved stack.
+- Must not implement product features beyond minimal scaffold placeholders.
 
 ## New Project Initialization
 
-For projects starting from zero, skeleton mode may include stack selection and technical initialization. This work is allowed only after explicit user approval and a short initialization plan.
+For zero-start projects, skeleton mode may include stack selection and technical setup. Requires explicit user approval and a short initialization plan, then executes approved changes.
 
-The initialization plan should specify:
-- Product shape and target platform, such as web app, API, CLI, mobile app, desktop app, or library
-- Recommended stack and main alternatives considered
-- Package manager and runtime requirements
-- Test, lint, typecheck, build, and dev-server setup
-- Files and directories expected to be created or changed outside `agents/**`
-- External services, databases, deployment targets, or secrets required now or deferred
-- Validation commands to run after initialization
+**Plan specifies:**
+- Product shape and target platform (web app, API, CLI, mobile, desktop, library)
+- Recommended stack and alternatives considered
+- PM, runtime, test/lint/typecheck/build/dev setup
+- Files/dirs to create outside `agents/**`
+- External services, DB, deployment, secrets (now or deferred)
+- Validation commands
 
-Allowed after approval:
-- Choose framework, runtime, package manager, and supporting tools
-- Initialize a project scaffold
-- Add approved dependencies and lockfiles
-- Configure tests, lint, typecheck, build, formatting, and dev scripts
-- Create minimal technical structure and placeholder files required by the scaffold
-- Update agent source-of-truth docs with the resulting stack, commands, and decisions
+**Allowed after approval:**
+- Choose framework, runtime, PM, tools. Initialize scaffold, add deps and lockfiles.
+- Configure tests, lint, typecheck, build, formatting, dev scripts.
+- Create minimal technical structure and placeholders required by the scaffold.
+- Update agent source-of-truth docs with resulting stack, commands, decisions.
 
-Not allowed during initialization unless explicitly planned and approved:
-- Implement product features
-- Implement domain workflows or user-facing behavior beyond scaffold placeholders
-- Add authentication, authorization, payments, production data handling, or other security-sensitive flows
-- Create irreversible infrastructure or deployment changes
-- Add database migrations with product schema unless the user explicitly approves the schema and rollback notes
-- Make durable architecture decisions without recording them in `agents/docs/decisions.md`
+**Not allowed unless explicitly planned and approved:**
+- Product features, domain workflows, or user-facing behavior beyond scaffold placeholders.
+- Auth, payments, production data, security-sensitive flows.
+- Irreversible infra/deployment changes.
+- DB migrations with product schema without explicit user approval of schema and rollback notes.
+- Durable architecture decisions without recording in `agents/docs/decisions.md`.
 
-After initialization, update `AGENTS.md`, `agents/docs/testing.md`, `agents/docs/DoD.md`, and any applicable source-of-truth files before running the readiness check.
+After initialization, update `AGENTS.md`, `agents/docs/testing.md`, `agents/docs/DoD.md`, and applicable source-of-truth files before the readiness check.
 
 ## Information To Collect
 
-Before switching to `project` mode, fill the stable project context that applies:
-- Product, domain, users, and goal in `AGENTS.md`
-- Runtime/framework, package manager, database, test tools, deployment, and external services in `AGENTS.md`
-- Real commands in the `Commands` section of `AGENTS.md`, using `not available` only when a command truly does not exist
-- Testing rules in `agents/docs/testing.md`
-- Definition of done in `agents/docs/DoD.md`
-- Durable technical/product decisions in `agents/docs/decisions.md`
-- API, database, domain, and design source-of-truth files when those areas apply
+Before switching to `project` mode, fill applicable fields:
+- `AGENTS.md`: product info, stack, commands (use `not available` only when truly absent)
+- `agents/docs/testing.md`: test commands, locations, services
+- `agents/docs/DoD.md`: definition of done
+- `agents/docs/decisions.md`: durable decisions
+- `agents/docs/api.md`, `agents/db/schema.sql`, `agents/db/domain.md`, `agents/docs/design.md` when those areas apply
 
-Do not infer missing facts from package files, filenames, or common conventions unless the user approves the inference. Treat blank fields, placeholders, and `not available` commands as missing configuration.
+Do not infer missing facts without user approval. Treat blanks and `not available` as missing config.
 
 ## Bootstrap Workflow
 
-1. Identify missing project context from `AGENTS.md` and relevant files under `agents/**`.
-2. Determine whether the project is new, existing, or agent-maintenance only.
-3. Ask the user for missing facts or record clearly approved assumptions.
-4. For a new project that needs stack setup, propose an initialization plan and wait for approval before touching files outside `agents/**`.
-5. Update only files allowed by the active skeleton work type.
-6. Validate that required project context is complete enough for product work.
-7. Present a concise readiness summary to the user.
-8. Ask for explicit approval before switching to `project` mode.
+1. Determine project type (new / existing / agent-maintenance) from context.
+2. Follow the applicable workflow:
+   - **Existing**: `agents/docs/adoption.md`
+   - **New**: New Project Initialization section above (propose plan, wait for approval)
+   - **Maintenance**: edit directly
+3. Ask user for missing facts; record approved assumptions.
+4. Update only files allowed by the active skeleton work type.
+5. Validate context is complete enough for product work.
+6. Present readiness summary; ask for explicit approval before switching to `project` mode.
 
 ## Readiness Criteria
 

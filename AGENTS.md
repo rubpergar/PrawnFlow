@@ -52,7 +52,8 @@ Read the smallest useful set. Use this table to decide what to open, not as a ma
 
 | Area | File | Purpose | Read when |
 |---|---|---|---|
-| Bootstrap | `agents/docs/bootstrap.md` | Skeleton-mode setup scope, readiness, and transition to project mode | Current mode is `skeleton` or user requests bootstrap maintenance |
+| Bootstrap | `agents/docs/bootstrap.md` | Skeleton-mode setup scope, readiness, and transition to project mode | Mode is `skeleton` or user requests bootstrap maintenance |
+| Adoption | `agents/docs/adoption.md` | Existing-repo discovery and adoption flow for projects with pre-existing code | Mode is `skeleton` and the repo has existing code, or user requests adoption |
 | Active task | `agents/task/backlog.md` | Queue and current task selection | Planning or implementing product work |
 | Task plan | `agents/task/TASK-XXX-plan.md` | Approved scope and behavior contract | Implementing or validating the active task |
 | Task checklist | `agents/task/TASK-XXX-checklist.md` | Execution ledger and resume point | Implementing or resuming the active task |
