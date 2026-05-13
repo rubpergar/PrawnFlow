@@ -95,7 +95,7 @@ Use a skill only when its trigger matches the request. Project stack and source-
 
 | Skill | Path | Use when | Avoid when |
 |---|---|---|---|
-| Test-Driven Development | `agents/skills/test-driven-development/SKILL.md` | Load once before implementation code for features, bug fixes, behavior changes, or behavior-preserving refactors; it is the TDD methodology authority | Docs-only, planning-only, config-only changes with no behavior |
+| Test-Driven Development | `agents/skills/test-driven-development/SKILL.md` | Read and apply once before implementation code for features, bug fixes, behavior changes, or behavior-preserving refactors; it is the TDD methodology authority | Docs-only, planning-only, config-only changes with no behavior |
 | Interface Design | `agents/skills/interface-design/SKILL.md` | Designing, implementing, improving, or reviewing UI/UX, frontend visuals, responsive behavior, interaction states, forms, navigation, dashboards, components, and accessibility tied to UI | Backend-only work, SEO-only audits, security review, brand identity-only work, image generation, or measured performance optimization |
 | SEO Audit | `agents/skills/seo-audit/SKILL.md` | Auditing public pages for crawlability, indexation, metadata, content structure, Core Web Vitals, internal links, schema, or rankings | Private dashboards, backend-only work, UI polish without SEO scope |
 | Code Review Excellence | `agents/skills/code-review-excellence/SKILL.md` | Reviewing code changes, PRs, architecture-sensitive diffs, or when explicitly asked for a code review | Implementing code directly, formatting-only checks, or replacing automated lint/tests |
@@ -106,6 +106,8 @@ Use a skill only when its trigger matches the request. Project stack and source-
 
 Frontend precedence: use only `interface-design` for UI/UX, frontend visuals, responsive behavior, interaction states, forms, navigation, components, accessibility tied to UI, and UI review. Do not load separate UI skills.
 Quality precedence: use `security-review` for exploitable security analysis, `performance` for measured web performance work, and `code-review-excellence` for general code review. UI accessibility is handled by `interface-design` unless the project later adds a separate specialist accessibility workflow. Project source-of-truth docs and approved task plans override skill assumptions.
+
+"Read and apply" means: open the skill file and follow its instructions. If your runtime supports formal skill loading, you may use that mechanism instead — the outcome is the same.
 
 ## SDD Workflow
 Product implementation starts only when there is exactly one task under `## Current` in `agents/task/backlog.md`.
@@ -126,7 +128,7 @@ Product implementation starts only when there is exactly one task under `## Curr
    - Derive checklist items from the approved plan only.
 
 4. Implement with TDD
-   - Load `agents/skills/test-driven-development/SKILL.md` once at the start of implementation and follow it for the red/green/refactor process.
+   - Read and apply `agents/skills/test-driven-development/SKILL.md` once at the start of implementation and follow it for the red/green/refactor process.
    - Read the approved task plan, checklist, `agents/docs/testing.md`, and relevant source-of-truth files.
    - Use `agents/docs/testing.md` only for project-specific commands, locations, fixtures, and validation requirements.
    - Mark checklist items as they are completed.

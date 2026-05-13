@@ -33,7 +33,7 @@ Reusable starter for projects that want an agent to work with spec-driven develo
 5. Add exactly one task under `## Current` in `agents/task/backlog.md` when implementation should begin.
 6. Create and approve `agents/task/TASK-XXX-plan.md`.
 7. Create `agents/task/TASK-XXX-checklist.md`.
-8. Load the TDD skill for implementation, validate against `agents/docs/DoD.md`, then ask before backlog closeout/archive moves.
+8. Read and apply the TDD skill for implementation, validate against `agents/docs/DoD.md`, then ask before backlog closeout/archive moves.
 
 ## Core Rule
 
