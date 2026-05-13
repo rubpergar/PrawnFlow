@@ -30,10 +30,8 @@ Three kinds of work. Keep separate from product delivery.
 - Record project facts, commands, testing rules, decisions, domain notes, API contracts, DB docs, design rules.
 
 **Existing project discovery:**
-- Follow `agents/docs/adoption.md`.
-- Read repo to identify stack, commands, architecture, domain, validation rules.
-- Update agent docs with verified facts.
-- Mark uncertain conclusions as assumptions; ask before treating as authoritative.
+- Run `/bootstrap` in the TUI to execute the adoption flow interactively.
+- The command inspects the repo, interviews the user, fills source-of-truth docs, and handles readiness & transition.
 - Do not modify product source code unless the user explicitly requests it.
 
 **New project initialization:**
@@ -85,7 +83,7 @@ Do not infer missing facts without user approval. Treat blanks and `not availabl
 
 1. Determine project type (new / existing / agent-maintenance) from context.
 2. Follow the applicable workflow:
-   - **Existing**: `agents/docs/adoption.md`
+   - **Existing**: `/bootstrap` command (`.opencode/commands/bootstrap.md`)
    - **New**: New Project Initialization section above (propose plan, wait for approval)
    - **Maintenance**: edit directly
 3. Ask user for missing facts; record approved assumptions.

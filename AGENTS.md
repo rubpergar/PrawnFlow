@@ -54,7 +54,6 @@ Read the smallest useful set. Use this table to decide what to open, not as a ma
 | Area | File | Purpose | Read when |
 |---|---|---|---|
 | Bootstrap | `agents/docs/bootstrap.md` | Skeleton-mode setup scope, readiness, and transition to project mode | Mode is `skeleton` or user requests bootstrap maintenance |
-| Adoption | `agents/docs/adoption.md` | Existing-repo discovery and adoption flow for projects with pre-existing code | Mode is `skeleton` and the repo has existing code, or user requests adoption |
 | Active task | `agents/task/backlog.md` | Queue and current task selection | Planning or implementing product work |
 | Task plan | `agents/task/TASK-XXX-plan.md` | Approved scope and behavior contract | Implementing or validating the active task |
 | Task checklist | `agents/task/TASK-XXX-checklist.md` | Execution ledger and resume point | Implementing or resuming the active task |
@@ -77,7 +76,6 @@ Use this table before modifying any source-of-truth document to determine if exp
 |---|---|---|---|
 | `AGENTS.md` | User/Team | Operating rules, stack, commands | Yes |
 | `agents/docs/bootstrap.md` | Framework | Skeleton maintenance | No (template) |
-| `agents/docs/adoption.md` | Framework | Adoption flow maintenance | No (template) |
 | `agents/docs/testing.md` | Engineering | New commands, fixtures, validation rules | Only when validation behavior changes |
 | `agents/docs/DoD.md` | User/Team | Acceptance criteria | Yes |
 | `agents/docs/decisions.md` | User/Team | Durable ADR | Yes |
