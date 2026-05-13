@@ -34,14 +34,6 @@ Original source/license: <source and license>
 - Upstream license checked: MIT License in `https://github.com/wshobson/agents/blob/main/LICENSE`.
 - Practical status: modification and internal commercial use are allowed under MIT; add local attribution/license reference before external redistribution.
 
-### `conventional-commit`
-- Local path: `agents/skills/conventional-commit/`
-- Lock source: not present in the root `skills-lock.json`.
-- Lock source path: not recorded.
-- Local license signal: no local license/front matter license found.
-- Upstream license checked: not available from current repository metadata.
-- Practical status: treat as internal-only until provenance is recorded, or rewrite it as original project guidance because the content is small and generic.
-
 ### `context7-mcp`
 - Local path: `agents/skills/context7-mcp/`
 - Lock source: local user-level skill copy.
