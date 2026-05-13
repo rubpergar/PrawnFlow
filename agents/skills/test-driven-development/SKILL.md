@@ -3,6 +3,13 @@ name: test-driven-development
 description: Use when implementing any feature or bugfix, before writing implementation code
 ---
 
+## Internal Modifications
+Modified by: Rubén P.G.
+Date: 2026-05-13
+Purpose: Added pre-existing/legacy code exception to separate "session code" and "project code" in The Iron Law, Red Flags, and Verification Checklist. Pre-existing code is protected from deletion in favor of regression tests. Strict TDD applies only to code written during the current task.
+Distribution: Internal use only unless licenses are reviewed before redistribution.
+Original source/license: see `agents/skills/README.md`.
+
 # Test-Driven Development (TDD)
 
 ## Overview
@@ -34,15 +41,29 @@ Thinking "skip TDD just this once"? Stop. That's rationalization.
 NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST
 ```
 
-Write code before the test? Delete it. Start over.
+### For pre-existing / legacy code (written before this task)
 
-**No exceptions:**
+If production code already exists **and** was part of the project before the current task (e.g. legacy code, user-written code, code from a previous task, or third-party code):
+
+- **Do NOT delete it.**
+- Add a failing regression or specification test that captures the expected behavior or the observed bug.
+- Verify the test fails for the correct reason.
+- Recover the TDD cycle from the current state.
+
+### For code written during this task without a test
+
+If production code was written by the agent during **this** task without a failing test first:
+
+- Delete it. Start over.
+- Implement fresh from tests. Period.
+
+**No exceptions for session code:**
 - Don't keep it as "reference"
 - Don't "adapt" it while writing tests
 - Don't look at it
 - Delete means delete
 
-Implement fresh from tests. Period.
+Do not delete pre-existing, user, or third-party changes without explicit instructions.
 
 ## Red-Green-Refactor
 
@@ -227,11 +248,10 @@ Automated tests are systematic. They run the same way every time.
 
 **"Deleting X hours of work is wasteful"**
 
-Sunk cost fallacy. The time is already gone. Your choice now:
-- Delete and rewrite with TDD (X more hours, high confidence)
-- Keep it and add tests after (30 min, low confidence, likely bugs)
-
-The "waste" is keeping code you can't trust. Working code without real tests is technical debt.
+Depends on what kind of code it is:
+- **Pre-existing / legacy code**: keep it, add a failing regression test first. Never delete project history.
+- **Session-scoped exploration**: sunk cost fallacy applies. Delete and rewrite with TDD discipline.
+- **User-written or third-party code**: never delete without explicit instructions. Add regression tests.
 
 **"TDD is dogmatic, being pragmatic means adapting"**
 
@@ -262,8 +282,8 @@ Tests-first force edge case discovery before implementing. Tests-after verify yo
 | "Tests after achieve same goals" | Tests-after = "what does this do?" Tests-first = "what should this do?" |
 | "Already manually tested" | Ad-hoc ≠ systematic. No record, can't re-run. |
 | "Deleting X hours is wasteful" | Sunk cost fallacy. Keeping unverified code is technical debt. |
-| "Keep as reference, write tests first" | You'll adapt it. That's testing after. Delete means delete. |
-| "Need to explore first" | Fine. Throw away exploration, start with TDD. |
+| "Keep as reference, write tests first" | Add a regression test first. Discard only session-scoped exploration code. |
+| "Need to explore first" | Fine. Mark exploration as pre-existing for next task. Start TDD for new code. |
 | "Test hard = design unclear" | Listen to test. Hard to test = hard to use. |
 | "TDD will slow me down" | TDD faster than debugging. Pragmatic = test-first. |
 | "Manual test faster" | Manual doesn't prove edge cases. You'll re-test every change. |
@@ -285,7 +305,7 @@ Tests-first force edge case discovery before implementing. Tests-after verify yo
 - "TDD is dogmatic, I'm being pragmatic"
 - "This is different because..."
 
-**All of these mean: Delete code. Start over with TDD.**
+**For session code (written this task): delete and restart TDD. For legacy/preexisting code: pause, add a failing regression test, then recover the cycle.**
 
 ## Example: Bug Fix
 
@@ -337,7 +357,7 @@ Before marking work complete:
 - [ ] Tests use real code (mocks only if unavoidable)
 - [ ] Edge cases and errors covered
 
-Can't check all boxes? You skipped TDD. Start over.
+Can't check all boxes? Review: is this pre-existing code without tests? Add regression tests. Otherwise, you skipped TDD — restart with TDD discipline for new code.
 
 ## When Stuck
 
