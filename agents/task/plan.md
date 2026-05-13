@@ -10,19 +10,14 @@ Copy to `agents/task/TASK-XXX-plan.md`. Do not implement from this template.
 - Title:
 - Backlog source: `agents/task/backlog.md`
 
-## User story
-As a...
-I want...
-So that...
-
 ## Summary
 What will change and why?
 
 ## Scope
-In:
+**In:**
 - ...
 
-Out:
+**Out (explicitly excluded):**
 - ...
 
 ## Current Behavior
@@ -31,38 +26,13 @@ Out:
 ## Target Behavior
 ...
 
-## Affected Areas
-- API:
-- UI:
-- DB/data:
-- Tests:
-- Config/deployment:
-- Security/auth:
-- Observability:
-- Docs:
-
 ## Acceptance Criteria
 - ...
-
-## Test Strategy
-- First failing test:
-- Targeted tests:
-- Integration/E2E:
-- Manual checks:
-- TDD exceptions, if any:
 
 ## Edge Cases
 - ...
 
-## Assumptions
-- ...
-
-## Decision Records
-- Relevant accepted ADRs read from `agents/docs/decisions.md`:
-- Proposed durable decisions that may need user approval before recording:
-- Task-local choices that should not become ADRs:
-
-## Risks and Dependencies
+## Assumptions / Risks
 - ...
 
 ## Open Questions
@@ -73,13 +43,6 @@ Out:
 - `agents/docs/testing.md`
 - ...
 
-## Validation Plan
-- Targeted tests:
-- Full test suite:
-- Lint/typecheck/build:
-- Other:
-
-## Approval
-- Plan reviewed by user: yes | no
-- Ready for checklist: yes | no
-- Approved scope changes:
+## Decision Records
+- ADRs read from `agents/docs/decisions.md`:
+- New decisions to record after user approval:
