@@ -29,7 +29,8 @@ Fill only what applies during bootstrap.
 - External services:
 
 ## Operating Rules
-- Before modifying a source-of-truth document, check the **Approval needed?** column in the Source of Truth Map to determine if explicit approval is needed.
+- In skeleton mode, editing agent configuration files (`AGENTS.md`, `agents/**`, `.opencode/**`) does not require user approval. The Source of Truth Map approval column only applies in project mode.
+- Before modifying a source-of-truth document in project mode, check the **Approval needed?** column in the Source of Truth Map to determine if explicit approval is needed.
 - Product behavior changes require the SDD workflow below.
 - Template/agent-maintenance changes may be done directly when the user explicitly asks.
 - Skeleton maintenance is not product implementation and does not require a backlog task, plan, or checklist unless the user asks for that workflow.
@@ -59,15 +60,15 @@ Read the smallest useful set. Use this table to decide what to open, not as a ma
 | Task checklist | `agents/task/TASK-XXX-checklist.md` | Execution ledger and resume point | Implementing or resuming the active task | No (task artifacts) |
 | Plan template | `agents/task/plan.md` | Template for task-specific plans | Creating a new task plan | No (template) |
 | Checklist template | `agents/task/checklist.md` | Template for task-specific checklists | Creating a new task checklist | No (template) |
-| Acceptance | `agents/docs/DoD.md` | Definition of done and closeout gates | Before validation and closeout | Si |
-| Testing | `agents/docs/testing.md` | Project-specific test commands, locations, fixtures, and validation rules | Adding/running tests or validating work | Solo si cambia validación |
+| Acceptance | `agents/docs/DoD.md` | Definition of done and closeout gates | Before validation and closeout | Yes |
+| Testing | `agents/docs/testing.md` | Project-specific test commands, locations, fixtures, and validation rules | Adding/running tests or validating work | Only if validation changes |
 | Decisions | `agents/docs/decisions.md` | Durable product, technical, and workflow decisions recorded as ADRs | Planning product work, a durable decision is needed, or past rationale matters | No |
 | API contracts | `agents/docs/api.md` | Public routes, payloads, errors, compatibility | API routes, clients, payloads, or contracts are affected | No |
 | DB schema | `agents/db/schema.sql` | Current database structure | Persistence, migrations, queries, or schema are affected | No |
 | DB domain | `agents/db/domain.md` | Domain vocabulary, relationships, business rules | Data model or business rules are affected | No |
 | UI design | `agents/docs/design.md` | Reusable UI rules, tokens, components, accessibility | UI, design system, or reusable UX behavior is affected | No |
-| Dependencies | `agents/docs/dependency-policy.md` | Rules for introducing new dependencies | Adding or evaluating a new dependency to the project | Si |
-| Debt | `agents/docs/debt.md` | Out-of-scope findings, bugs, technical debt | Found something outside the active task scope during implementation, validation, or review | Si |
+| Dependencies | `agents/docs/dependency-policy.md` | Rules for introducing new dependencies | Adding or evaluating a new dependency to the project | Yes |
+| Debt | `agents/docs/debt.md` | Out-of-scope findings, bugs, technical debt | Found something outside the active task scope during implementation, validation, or review | Yes |
 
 ## Skills
 Use a skill only when its trigger matches the request. Project stack and source-of-truth docs override skill assumptions.
