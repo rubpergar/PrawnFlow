@@ -29,6 +29,7 @@ Fill only what applies during bootstrap.
 - External services:
 
 ## Operating Rules
+- Before modifying a source-of-truth document, check the Document Ownership table below to determine if explicit approval is needed.
 - Product behavior changes require the SDD workflow below.
 - Template/agent-maintenance changes may be done directly when the user explicitly asks.
 - Skeleton maintenance is not product implementation and does not require a backlog task, plan, or checklist unless the user asks for that workflow.
@@ -67,6 +68,27 @@ Read the smallest useful set. Use this table to decide what to open, not as a ma
 | DB domain | `agents/db/domain.md` | Domain vocabulary, relationships, business rules | Data model or business rules are affected |
 | UI design | `agents/docs/design.md` | Reusable UI rules, tokens, components, accessibility | UI, design system, or reusable UX behavior is affected |
 | Archive | `agents/task/archive/` | Completed task plans and checklists | Current work depends on historical task context |
+
+## Document Ownership
+Use this table before modifying any source-of-truth document to determine if explicit approval is needed.
+
+| Document | Owner | When modified | Requires approval |
+|---|---|---|---|
+| `AGENTS.md` | User/Team | Operating rules, stack, commands | Yes |
+| `agents/docs/bootstrap.md` | Framework | Skeleton maintenance | No (template) |
+| `agents/docs/adoption.md` | Framework | Adoption flow maintenance | No (template) |
+| `agents/docs/testing.md` | Engineering | New commands, fixtures, validation rules | Only when validation behavior changes |
+| `agents/docs/DoD.md` | User/Team | Acceptance criteria | Yes |
+| `agents/docs/decisions.md` | User/Team | Durable ADR | Yes |
+| `agents/docs/api.md` | Backend/API | Public contract changes | Yes |
+| `agents/db/schema.sql` | Data/Backend | Migration or schema change | Yes |
+| `agents/db/domain.md` | Data/Product | Domain rules | Yes |
+| `agents/docs/design.md` | UI/Product | Reusable visual rules | Yes when design system changes |
+| `agents/task/backlog.md` | User/Agent | Task selection and status | No |
+| `agents/task/plan.md` | Framework | Plan template | No (template) |
+| `agents/task/checklist.md` | Framework | Checklist template | No (template) |
+| `agents/skills/*.md` | Framework | Skill maintenance | No (template) |
+| `README.md` | User/Team | Product documentation | Yes |
 
 ## Skills
 Use a skill only when its trigger matches the request. Project stack and source-of-truth docs override skill assumptions.
