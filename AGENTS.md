@@ -67,6 +67,7 @@ Read the smallest useful set. Use this table to decide what to open, not as a ma
 | DB domain | `agents/db/domain.md` | Domain vocabulary, relationships, business rules | Data model or business rules are affected |
 | UI design | `agents/docs/design.md` | Reusable UI rules, tokens, components, accessibility | UI, design system, or reusable UX behavior is affected |
 | Dependencies | `agents/docs/dependency-policy.md` | Rules for introducing new dependencies | Adding or evaluating a new dependency to the project |
+| Debt | `agents/docs/debt.md` | Out-of-scope findings, bugs, technical debt | Found something outside the active task scope during implementation, validation, or review |
 | Archive | `agents/task/archive/` | Completed task plans and checklists | Current work depends on historical task context |
 
 ## Document Ownership
@@ -88,6 +89,7 @@ Use this table before modifying any source-of-truth document to determine if exp
 | `agents/task/checklist.md` | Framework | Checklist template | No (template) |
 | `agents/skills/*.md` | Framework | Skill maintenance | No (template) |
 | `agents/docs/dependency-policy.md` | Framework | Policy maintenance | No (template) |
+| `agents/docs/debt.md` | User/Agent | Debt registration | No |
 | `README.md` | User/Team | Product documentation | Yes |
 
 ## Skills
@@ -156,7 +158,7 @@ Product implementation starts only when there is exactly one task under `## Curr
 ## Boundaries
 - Do not invent missing requirements.
 - Do not change unrelated files.
-- Do not perform broad refactors during feature work.
+- Do not perform broad refactors during feature work. If something outside scope is found, register it in `agents/docs/debt.md` instead of modifying it.
 - Do not introduce dependencies without following `agents/docs/dependency-policy.md`.
 - Do not change public APIs unless the approved plan says so.
 - Do not change authentication, authorization, payments, migrations, or other security-sensitive behavior without explicit plan coverage.
