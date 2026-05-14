@@ -115,7 +115,7 @@ Product implementation starts only when there is exactly one task under `## Curr
    - If test-first work is not feasible, stop unless the exception is already documented in the approved plan and checklist.
 
 5. Validate
-   - Run targeted tests, then full validation commands when available.
+   - Run targeted tests, then full validation commands. See `agents/docs/testing.md` for the actual commands.
    - Run lint/typecheck/build when relevant.
    - Report unrelated failures before broadening scope.
    - Check `agents/docs/DoD.md`.
@@ -145,17 +145,14 @@ Product implementation starts only when there is exactly one task under `## Curr
 - Never expose secrets, tokens, credentials, private keys, or production-like sensitive data.
 
 ## Commands
-Replace skeleton values during project setup. Use `not available` when a command does not exist, with a short fallback note.
+Validation commands (test, lint, typecheck, build, full validation) are defined in `agents/docs/testing.md`.
+
+Non-validation commands:
 
 | Purpose | Command | Notes |
 |---|---|---|
 | Install | not configured | Package manager and lockfile policy |
 | Dev server | not configured | Port and env requirements |
-| Targeted tests | not configured | Example command required |
-| Full test suite | not configured | Required services/fixtures |
-| Lint | not configured | Required before closeout when available |
-| Typecheck | not configured | Required before closeout when available |
-| Build | not configured | Required for UI/API changes when available |
 
 ## Code Conventions
 - Prefer existing patterns and local helpers.
