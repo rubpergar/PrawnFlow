@@ -31,17 +31,22 @@ Track each behavior/subtask from the plan through RED → GREEN → REFACTOR cyc
 - [ ] Out-of-scope findings registered in `agents/docs/debt.md`.
 - [ ] Durable docs updated (`agents/docs/api.md`, `agents/db/schema.sql`, `agents/docs/design.md`, etc.) as needed.
 
-### 4. Validation
+### 4. Validation (→ validated)
 - [ ] Targeted tests:
 - [ ] Full test suite:
 - [ ] Lint:
 - [ ] Typecheck:
 - [ ] Build:
-- [ ] DoD checked:
+- [ ] DoD validated criteria checked:
 
-### 5. Closeout
+### 5. Closeout (→ closed)
 - [ ] Ask user before marking backlog task done.
 - [ ] Move task files to `agents/task/archive/` after user approves.
+
+## States Reached
+- [ ] Implemented (sections 1-3 complete)
+- [ ] Validated (section 4 complete)
+- [ ] Closed (section 5 complete + user approval)
 
 ## Resume Notes
 ...
