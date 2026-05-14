@@ -26,9 +26,10 @@ A project with existing source code (package manifests, `src/`, config files, et
 Uses the `/bootstrap` command (`.opencode/commands/bootstrap.md`), which:
 1. Inspects the repository structure and stack
 2. Interviews the user to confirm findings and fill gaps
-3. Writes source-of-truth docs with confirmed facts only
-4. Runs a readiness check
-5. Offers transition to project mode if ready
+3. Detects existing DB schema and DB change log files and updates the Source of Truth Map paths in `AGENTS.md` when appropriate
+4. Writes source-of-truth docs with confirmed facts only
+5. Runs a readiness check
+6. Offers transition to project mode if ready
 
 **Readiness criteria:**
 - Product identity (name, domain, users, goal) confirmed by user
@@ -38,7 +39,12 @@ Uses the `/bootstrap` command (`.opencode/commands/bootstrap.md`), which:
 - At least one test command confirmed
 - Lint/typecheck/build may be deferred
 
-**Transition:** When readiness passes (100% critical fields or >= 50% with user consent), the command updates `AGENTS.md` mode, archives this file, and confirms the switch.
+**DB file detection:**
+- If the project already contains DB schema or ordered SQL change log files, `/bootstrap` should propose those as the `DB schema` and `DB change log` paths in the Source of Truth Map.
+- If the project does not contain them, keep `agents/db/schema.sql` and `agents/db/changes.sql` as the default paths.
+- After bootstrap, normal implementation work should use the DB paths declared in the Source of Truth Map without any extra DB policy document.
+
+**Transition:** When readiness passes (100% critical fields or >= 75% with user consent), the command updates `AGENTS.md` mode, archives this file regardless of completeness, and confirms the switch. Pending fields are tracked in the project-mode message in `AGENTS.md`.
 
 ### Path B: New Project Initialization
 

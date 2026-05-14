@@ -4,9 +4,15 @@ description: Use when implementing any feature or bugfix, before writing impleme
 ---
 
 ## Internal Modifications
-Modified by: Rubén P.G.
+Modified by: RPG
 Date: 2026-05-13
 Purpose: Added pre-existing/legacy code exception to separate "session code" and "project code" in The Iron Law, Red Flags, and Verification Checklist. Pre-existing code is protected from deletion in favor of regression tests. Strict TDD applies only to code written during the current task.
+Distribution: Internal use only unless licenses are reviewed before redistribution.
+Original source/license: see `agents/skills/README.md`.
+
+Modified by: RPG
+Date: 2026-05-14
+Purpose: Replaced "your human partner" with "the user" for agent-context consistency (also in `testing-anti-patterns.md`).
 Distribution: Internal use only unless licenses are reviewed before redistribution.
 Original source/license: see `agents/skills/README.md`.
 
@@ -28,7 +34,7 @@ Write the test first. Watch it fail. Write minimal code to pass.
 - Refactoring
 - Behavior changes
 
-**Exceptions (ask your human partner):**
+**Exceptions (ask the user):**
 - Throwaway prototypes
 - Generated code
 - Configuration files
@@ -363,7 +369,7 @@ Can't check all boxes? Review: is this pre-existing code without tests? Add regr
 
 | Problem | Solution |
 |---------|----------|
-| Don't know how to test | Write wished-for API. Write assertion first. Ask your human partner. |
+| Don't know how to test | Write wished-for API. Write assertion first. Ask the user. |
 | Test too complicated | Design too complicated. Simplify interface. |
 | Must mock everything | Code too coupled. Use dependency injection. |
 | Test setup huge | Extract helpers. Still complex? Simplify design. |
@@ -388,4 +394,4 @@ Production code → test exists and failed first
 Otherwise → not TDD
 ```
 
-No exceptions without your human partner's permission.
+No exceptions without the user's permission.

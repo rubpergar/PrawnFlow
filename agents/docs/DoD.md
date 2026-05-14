@@ -6,32 +6,32 @@ A task passes through three states. Each state has its own criteria. A task can 
 
 The change is technically ready. Relevant tests exist.
 
-- [ ] Task plan matches the implemented behavior.
-- [ ] Checklist is complete or explains non-applicable items.
-- [ ] Assumptions, edge cases, scope changes, and TDD exceptions are recorded.
-- [ ] Changes are scoped to the approved plan.
-- [ ] Existing public interfaces stay compatible unless the plan says otherwise.
-- [ ] No unrelated refactors.
-- [ ] No unnecessary dependencies.
-- [ ] Security-sensitive behavior changed only with explicit plan coverage.
+- Task plan matches the implemented behavior.
+- Checklist is complete or explains non-applicable items.
+- Assumptions, edge cases, scope changes, and TDD exceptions are recorded.
+- Changes are scoped to the approved plan.
+- Existing public interfaces stay compatible unless the plan says otherwise.
+- No unrelated refactors.
+- No unnecessary dependencies.
+- Security-sensitive behavior changed only with explicit plan coverage.
 
 ## Validated
 
 Validations passed, or gaps are documented with residual risk.
 
-- [ ] Relevant tests were added or updated.
-- [ ] TDD evidence or approved exception is recorded for behavior changes.
-- [ ] Affected tests pass.
-- [ ] Lint/typecheck/build pass when available and relevant.
-- [ ] Any command that could not run is recorded with reason and residual risk.
-- [ ] Code-to-doc sync verified for affected source-of-truth docs (see plan "Affected Areas").
-      If discrepancies found, stop and ask user whether to update the doc or fix the code.
-      Do not proceed until resolved.
-- [ ] Affected source-of-truth docs updated (see documentation rules below).
-- [ ] Temporary files, debug logs, scratch scripts, and test artifacts cleaned or promoted.
-- [ ] `git status` contains only intentional changes.
+- Relevant tests were added or updated.
+- TDD evidence or approved exception is recorded for behavior changes.
+- Affected tests pass.
+- Lint/typecheck/build pass when available and relevant.
+- Any command that could not run is recorded with reason and residual risk.
+- Code-to-doc sync verified for affected source-of-truth docs (see plan "Affected Areas"). If discrepancies found, stop and ask user whether to update the doc or fix the code. Do not proceed until resolved.
+- Affected source-of-truth docs updated (see documentation rules below).
+- Temporary files, debug logs, scratch scripts, and test artifacts cleaned or promoted.
+- `git status` contains only intentional changes.
 
 ### Documentation rules
+
+Follow SDD Step 6 in `AGENTS.md` — it is the canonical source for when and how to update durable docs. This section mirrors it for local reference during validation; if they diverge, `AGENTS.md` takes precedence.
 
 Update only when the durable contract changes:
 - `agents/docs/api.md` for public API behavior.
@@ -46,5 +46,5 @@ Update only when the durable contract changes:
 
 Administratively closed. User approved, task files archived.
 
-- [ ] User approved backlog completion.
-- [ ] Task plan/checklist were moved to `agents/task/archive/` in the same closeout step.
+- User approved backlog completion.
+- Task plan/checklist were moved to `agents/task/archive/` in the same closeout step.

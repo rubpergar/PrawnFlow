@@ -153,8 +153,9 @@ Evaluate completeness:
 | % Critical resolved | Scenario | Action |
 |---|---|---|
 | 100% | Fully complete | Clean readiness. Offer transition. |
-| ≥50% and <100% | Partially complete | Readiness passes with observations. Offer transition listing pending fields. User decides. |
-| <50% | Mostly incomplete | Readiness does NOT pass. Explain blockers. Do not offer transition. |
+| ≥75% and <100% | Partially complete | Readiness passes with observations. Offer transition listing pending fields. User decides. |
+| <75% and ≥50% | Mostly incomplete | Readiness does NOT pass. Explain blockers. Do not offer transition. |
+| <50% | Largely incomplete | Readiness does NOT pass. Explain blockers. Do not offer transition. |
 | 0% with no context | Nothing completed | Only happens with empty repos. Already stopped at auto-detection. |
 
 For partial or mostly incomplete: ask if the user wants to answer pending fields now or defer.
@@ -173,8 +174,8 @@ Ask: "Do you want to transition to project mode?"
   - Confirm archived file is historical reference
 
 - If yes (partial):
-  - Same transition, but add to project-mode message: "Pending fields: <list>. Resolve them in a task plan before working on those areas."
-  - Do NOT archive `bootstrap.md` (skeleton is not fully closed). Keep it for reference.
+  - Same transition and archive as complete, but add to project-mode message: "Pending fields: <list>. Resolve them in a task plan before working on those areas."
+  - Archive `bootstrap.md` to `agents/task/archive/bootstrap-YYYY-MM-DD.md` (historical reference; pending fields are tracked in the mode message above).
 
 - If no:
   - The partial configuration is saved. Repository stays in skeleton mode.

@@ -35,6 +35,21 @@ What will change and why?
 ## Assumptions / Risks
 - ...
 
+## Database Impact
+Use `Not applicable` when the task does not affect the database.
+
+- Change summary:
+- DB schema file from Source of Truth Map:
+- DB change log file from Source of Truth Map:
+- Affected structures/data:
+- Forward migration approach:
+- Rollback approach:
+- Persisted data compatibility:
+- Operational risks:
+- Validation plan:
+- Backup/recovery notes:
+- Required doc updates:
+
 ## Open Questions
 - ...
 

@@ -8,9 +8,9 @@ Current mode: `skeleton`.
 
 This repository is in agent bootstrap mode. Product feature implementation is not allowed.
 
-For skeleton-mode scope, required setup information, validation, and transition to project mode, follow `agents/docs/bootstrap.md`.
+For skeleton-mode scope, required setup information, validation, and transition to project mode, follow `agents/docs/bootstrap.md`. After transition to project mode, the archived bootstrap is at `agents/task/archive/bootstrap-*.md` (historical reference only).
 
-Do not modify product source code or unrelated files unless `agents/docs/bootstrap.md` explicitly allows it or the user explicitly requests it.
+Do not modify product source code or unrelated files unless the bootstrap docs explicitly allow it or the user explicitly requests it.
 
 ## Project
 Fill this section during bootstrap. Leave fields blank only while they are unknown or not configured yet.
@@ -52,23 +52,24 @@ Fill only what applies during bootstrap.
 ## Source of Truth Map
 Read the smallest useful set. Use this table to decide what to open, not as a mandatory read list.
 
-| Area | File | Purpose | Read when | Approval needed? |
+| File | Area | Purpose | Read when | Approval needed to edit? |
 |---|---|---|---|---|
-| Bootstrap | `agents/docs/bootstrap.md` | Skeleton-mode setup scope, readiness, and transition to project mode | Mode is `skeleton` or user requests bootstrap maintenance | No (template) |
-| Active task | `agents/task/backlog.md` | Queue and current task selection | Planning or implementing product work | No |
-| Task plan | `agents/task/TASK-XXX-plan.md` | Approved scope and behavior contract | Implementing or validating the active task | No (task artifacts) |
-| Task checklist | `agents/task/TASK-XXX-checklist.md` | Execution ledger and resume point | Implementing or resuming the active task | No (task artifacts) |
-| Plan template | `agents/task/plan.md` | Template for task-specific plans | Creating a new task plan | No (template) |
-| Checklist template | `agents/task/checklist.md` | Template for task-specific checklists | Creating a new task checklist | No (template) |
-| Acceptance | `agents/docs/DoD.md` | Definition of done and closeout gates | Before validation and closeout | Yes |
-| Testing | `agents/docs/testing.md` | Project-specific test commands, locations, fixtures, and validation rules | Adding/running tests or validating work | Only if validation changes |
-| Decisions | `agents/docs/decisions.md` | Durable product, technical, and workflow decisions recorded as ADRs | Planning product work, a durable decision is needed, or past rationale matters | No |
-| API contracts | `agents/docs/api.md` | Public routes, payloads, errors, compatibility | API routes, clients, payloads, or contracts are affected | No |
-| DB schema | `agents/db/schema.sql` | Current database structure | Persistence, migrations, queries, or schema are affected | No |
-| DB domain | `agents/db/domain.md` | Domain vocabulary, relationships, business rules | Data model or business rules are affected | No |
-| UI design | `agents/docs/design.md` | Reusable UI rules, tokens, components, accessibility | UI, design system, or reusable UX behavior is affected | No |
-| Dependencies | `agents/docs/dependency-policy.md` | Rules for introducing new dependencies | Adding or evaluating a new dependency to the project | Yes |
-| Debt | `agents/docs/debt.md` | Out-of-scope findings, bugs, technical debt | Found something outside the active task scope during implementation, validation, or review | Yes |
+| `agents/docs/bootstrap.md` | Bootstrap | Skeleton setup and project transition | skeleton mode or bootstrap maintenance | No |
+| `agents/task/backlog.md` | Active task | Task queue and current selection | Planning or implementing product work | No |
+| `agents/task/TASK-XXX-plan.md` | Task plan | Scope and behavior contract | Implementing or validating task | No |
+| `agents/task/TASK-XXX-checklist.md` | Task checklist | Execution ledger and resume point | Implementing or resuming task | No |
+| `agents/task/plan.md` | Plan template | Template for task plans | Creating a new task plan | No |
+| `agents/task/checklist.md` | Checklist template | Template for checklists | Creating a new checklist | No |
+| `agents/docs/DoD.md` | Acceptance | Definition of done | Before validation and closeout | Yes |
+| `agents/docs/testing.md` | Testing | Test commands, fixtures, validation rules | Adding/running tests or validating work | Only if validation changes |
+| `agents/docs/decisions.md` | Decisions | ADR records | Planning, durable decision, or past rationale matters | No |
+| `agents/docs/api.md` | API contracts | Routes, payloads, errors, compatibility | API routes, clients, or payloads affected | No |
+| `agents/db/schema.sql` | DB schema | Current structure. Override path during bootstrap if project has its own. | Persistence, migrations, queries, or schema affected | No |
+| `agents/db/changes.sql` | DB change log | Ordered SQL changes with rollback notes. Override path during bootstrap if project has its own. | Persistence, migrations, queries, or schema affected | No |
+| `agents/db/domain.md` | DB domain | Vocabulary, entities, business rules | Data model or business rules affected | No |
+| `agents/docs/design.md` | UI design | Reusable UI tokens, components, a11y | UI, design system, or UX behavior affected | No |
+| `agents/docs/dependency-policy.md` | Dependencies | Rules for new dependencies | Adding or evaluating a dependency | Yes |
+| `agents/docs/debt.md` | Debt | Out-of-scope findings and bugs | Found something outside active task scope | Yes |
 
 ## Skills
 Use a skill only when its trigger matches the request. Project stack and source-of-truth docs override skill assumptions.
@@ -100,12 +101,14 @@ Product implementation starts only when there is exactly one task under `## Curr
    - Read relevant accepted ADRs in `agents/docs/decisions.md` before proposing behavior or implementation choices.
    - Create/update `agents/task/TASK-XXX-plan.md` from `agents/task/plan.md`.
    - Resolve behavior, data, security, API, and user-facing UX questions before implementation.
+   - If the task affects the database, record DB impact, migration, rollback, compatibility, validation, recovery, and required doc updates in the task plan.
    - If a durable decision may be needed, include an ADR proposal in the plan instead of writing directly to `agents/docs/decisions.md`.
    - Do not implement until the user approves the task-specific plan.
 
 3. Checklist
    - Create/update `agents/task/TASK-XXX-checklist.md` from `agents/task/checklist.md`.
    - Derive checklist items from the approved plan only.
+   - If the task affects the database, include checklist items for DB schema updates, DB change log updates, backup/recovery checks, and migration validation.
 
 4. Implement with TDD
    - Read and apply `agents/skills/test-driven-development/SKILL.md` once at the start of implementation and follow it for the red/green/refactor process.
@@ -123,7 +126,7 @@ Product implementation starts only when there is exactly one task under `## Curr
 6. Document
    - Update source-of-truth docs only when the durable project contract changes.
    - API changes update `agents/docs/api.md`.
-   - DB changes update `agents/db/schema.sql` and rollback/migration notes.
+   - DB changes update the DB schema and DB change log files declared in the Source of Truth Map, plus `agents/db/domain.md` when the domain model or business rules materially change.
    - Reusable UI rules update `agents/docs/design.md`.
    - Dependency changes update `agents/docs/dependency-policy.md` when the policy itself changes, and `agents/docs/decisions.md` when a new dependency ADR is recorded.
    - Lasting decisions may update `agents/docs/decisions.md` only after explicit user approval.
@@ -141,7 +144,9 @@ Product implementation starts only when there is exactly one task under `## Curr
 - Do not change public APIs unless the approved plan says so.
 - Do not change authentication, authorization, payments, migrations, or other security-sensitive behavior without explicit plan coverage.
 - Do not delete tests unless replacing them with equivalent or better coverage.
-- Do not change DB schema without migration and rollback notes.
+- Do not change DB schema without updating the DB change log file declared in the Source of Truth Map with forward migration SQL and rollback notes.
+- If a task affects the database, the task plan must cover migration approach, rollback or irreversibility, compatibility with persisted data, operational risks, validation, backup/recovery expectations, and required doc updates.
+- Prefer additive or staged DB changes for existing systems when direct destructive changes would risk persisted data or mixed-version deployments.
 - Never expose secrets, tokens, credentials, private keys, or production-like sensitive data.
 
 ## Commands

@@ -8,7 +8,7 @@ Optional context for commit messages: `$ARGUMENTS`
 
 Rules:
 
--First inspect the full repository state:
+- First inspect the full repository state:
     - `git status --short`
     - `git diff --stat`
     - `git diff`

@@ -13,7 +13,7 @@ The canonical skills lock file is `skills-lock.json` in the repository root. It 
 - This file is not legal advice; it is a working checklist so the agent does not assume permissions that are not present or recorded.
 
 ## Modification Notes
-For substantial edits to a third-party skill, add a short note near the top of the modified skill or in a nearby `NOTICE.md`:
+For substantial edits to a third-party skill, add a short note near the top of the modified skill:
 
 ```md
 ## Internal Modifications
@@ -36,16 +36,16 @@ Original source/license: <source and license>
 
 ### `context7-mcp`
 - Local path: `agents/skills/context7-mcp/`
-- Lock source: local user-level skill copy.
-- Lock source path: `C:/Users/rupg2/.agents/skills/context7-mcp/SKILL.md`.
+- Lock source: `upstash/context7` (GitHub; see `skills-lock.json`).
+- Lock source path (local copy): `<user-home-dir>/.agents/skills/context7-mcp/SKILL.md` (resolved during installation).
 - Local license signal: no local license/front matter license found.
 - Upstream license checked: not available from current repository metadata.
 - Practical status: treat as internal-only until provenance is recorded. This skill requires Context7 MCP tooling configured in the agent runtime; do not store API keys or credentials in this repository.
 
 ### `find-skills`
 - Local path: `agents/skills/find-skills/`
-- Lock source: local user-level skill copy.
-- Lock source path: `C:/Users/rupg2/.agents/skills/find-skills/SKILL.md`.
+- Lock source: `vercel-labs/skills` (GitHub; see `skills-lock.json`).
+- Lock source path (local copy): `<user-home-dir>/.agents/skills/find-skills/SKILL.md` (resolved during installation).
 - Local license signal: no local license/front matter license found.
 - Upstream license checked: not available from current repository metadata.
 - Practical status: treat as internal-only until provenance is recorded.
