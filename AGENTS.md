@@ -64,7 +64,8 @@ Read the smallest useful set. Use this table to decide what to open, not as a ma
 | Testing | `agents/docs/testing.md` | Project-specific test commands, locations, fixtures, and validation rules | Adding/running tests or validating work | Only if validation changes |
 | Decisions | `agents/docs/decisions.md` | Durable product, technical, and workflow decisions recorded as ADRs | Planning product work, a durable decision is needed, or past rationale matters | No |
 | API contracts | `agents/docs/api.md` | Public routes, payloads, errors, compatibility | API routes, clients, payloads, or contracts are affected | No |
-| DB schema | `agents/db/schema.sql` | Current database structure | Persistence, migrations, queries, or schema are affected | No |
+| DB schema | `agents/db/schema.sql` | Current database structure. During bootstrap, replace this path with the real project schema file when one exists. | Persistence, migrations, queries, or schema are affected | No |
+| DB change log | `agents/db/changes.sql` | Ordered SQL change log with forward steps, rollback notes, and operational checks. During bootstrap, replace this path with the real project change log file when one exists. | Persistence, migrations, queries, or schema are affected | No |
 | DB domain | `agents/db/domain.md` | Domain vocabulary, relationships, business rules | Data model or business rules are affected | No |
 | UI design | `agents/docs/design.md` | Reusable UI rules, tokens, components, accessibility | UI, design system, or reusable UX behavior is affected | No |
 | Dependencies | `agents/docs/dependency-policy.md` | Rules for introducing new dependencies | Adding or evaluating a new dependency to the project | Yes |
@@ -100,12 +101,14 @@ Product implementation starts only when there is exactly one task under `## Curr
    - Read relevant accepted ADRs in `agents/docs/decisions.md` before proposing behavior or implementation choices.
    - Create/update `agents/task/TASK-XXX-plan.md` from `agents/task/plan.md`.
    - Resolve behavior, data, security, API, and user-facing UX questions before implementation.
+   - If the task affects the database, record DB impact, migration, rollback, compatibility, validation, recovery, and required doc updates in the task plan.
    - If a durable decision may be needed, include an ADR proposal in the plan instead of writing directly to `agents/docs/decisions.md`.
    - Do not implement until the user approves the task-specific plan.
 
 3. Checklist
    - Create/update `agents/task/TASK-XXX-checklist.md` from `agents/task/checklist.md`.
    - Derive checklist items from the approved plan only.
+   - If the task affects the database, include checklist items for DB schema updates, DB change log updates, backup/recovery checks, and migration validation.
 
 4. Implement with TDD
    - Read and apply `agents/skills/test-driven-development/SKILL.md` once at the start of implementation and follow it for the red/green/refactor process.
@@ -123,7 +126,7 @@ Product implementation starts only when there is exactly one task under `## Curr
 6. Document
    - Update source-of-truth docs only when the durable project contract changes.
    - API changes update `agents/docs/api.md`.
-   - DB changes update `agents/db/schema.sql` and rollback/migration notes.
+   - DB changes update the DB schema and DB change log files declared in the Source of Truth Map, plus `agents/db/domain.md` when the domain model or business rules materially change.
    - Reusable UI rules update `agents/docs/design.md`.
    - Dependency changes update `agents/docs/dependency-policy.md` when the policy itself changes, and `agents/docs/decisions.md` when a new dependency ADR is recorded.
    - Lasting decisions may update `agents/docs/decisions.md` only after explicit user approval.
@@ -141,7 +144,9 @@ Product implementation starts only when there is exactly one task under `## Curr
 - Do not change public APIs unless the approved plan says so.
 - Do not change authentication, authorization, payments, migrations, or other security-sensitive behavior without explicit plan coverage.
 - Do not delete tests unless replacing them with equivalent or better coverage.
-- Do not change DB schema without migration and rollback notes.
+- Do not change DB schema without updating the DB change log file declared in the Source of Truth Map with forward migration SQL and rollback notes.
+- If a task affects the database, the task plan must cover migration approach, rollback or irreversibility, compatibility with persisted data, operational risks, validation, backup/recovery expectations, and required doc updates.
+- Prefer additive or staged DB changes for existing systems when direct destructive changes would risk persisted data or mixed-version deployments.
 - Never expose secrets, tokens, credentials, private keys, or production-like sensitive data.
 
 ## Commands
