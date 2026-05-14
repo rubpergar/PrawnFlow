@@ -1,6 +1,7 @@
 # Design System
 
 ---
+
 name: <project-name>
 colors:
   background:
@@ -79,6 +80,7 @@ components:
   badge:
     backgroundColor:
     rounded: "{rounded.sm}"
+
 ---
 
 Reusable UI/design source of truth. Mark this file as `Not applicable` for projects without UI.
@@ -103,7 +105,6 @@ List 3-6 principles that should guide reusable UI decisions.
 
 | Principle | Meaning | Applies to |
 |---|---|---|
-| | | |
 | | | |
 | | | |
 
