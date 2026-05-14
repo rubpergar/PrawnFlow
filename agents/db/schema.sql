@@ -1,0 +1,4 @@
+-- DB schema fallback for new or unconfigured projects.
+--
+-- If `AGENTS.md` points to a project-local DB schema file, update that file instead of this one.
+--

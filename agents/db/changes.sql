@@ -1,7 +1,6 @@
 -- DB change log fallback for new or unconfigured projects.
 --
--- If `AGENTS.md` points to a project-local DB change log file,
--- update that file instead of this one.
+-- If `AGENTS.md` points to a project-local DB change log file, update that file instead of this one.
 --
 -- Keep entries ordered and append-only unless a correction is required.
 --
