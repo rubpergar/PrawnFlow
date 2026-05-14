@@ -5,7 +5,7 @@ description: Use only for UI/UX work: designing, implementing, improving, or rev
 
 ## Internal Modifications
 
-Modified by: Rubén P.G.
+Modified by: RPG
 Date: 2026-04-30
 Purpose: Consolidated UI guidance into a selective, checklist-first internal workflow.
 Distribution: Internal use only unless licenses are reviewed before redistribution.
