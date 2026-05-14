@@ -29,6 +29,8 @@ Track each behavior/subtask from the plan through RED → GREEN → REFACTOR cyc
 - [ ] All TDD cycles complete or documented as approved exceptions.
 - [ ] Changes stayed within approved scope. No unrelated refactors.
 - [ ] Out-of-scope findings registered in `agents/docs/debt.md`.
+- [ ] Sync check: compare implemented code against affected source-of-truth docs from the plan.
+      Discrepancies → stop and ask user. Resolve before proceeding.
 - [ ] Durable docs updated (`agents/docs/api.md`, `agents/db/schema.sql`, `agents/docs/design.md`, etc.) as needed.
 
 ### 4. Validation (→ validated)

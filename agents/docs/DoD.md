@@ -24,6 +24,9 @@ Validations passed, or gaps are documented with residual risk.
 - [ ] Affected tests pass.
 - [ ] Lint/typecheck/build pass when available and relevant.
 - [ ] Any command that could not run is recorded with reason and residual risk.
+- [ ] Code-to-doc sync verified for affected source-of-truth docs (see plan "Affected Areas").
+      If discrepancies found, stop and ask user whether to update the doc or fix the code.
+      Do not proceed until resolved.
 - [ ] Affected source-of-truth docs updated (see documentation rules below).
 - [ ] Temporary files, debug logs, scratch scripts, and test artifacts cleaned or promoted.
 - [ ] `git status` contains only intentional changes.
