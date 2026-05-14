@@ -31,6 +31,8 @@ Validations passed, or gaps are documented with residual risk.
 
 ### Documentation rules
 
+Follow SDD Step 6 in `AGENTS.md` — it is the canonical source for when and how to update durable docs. This section mirrors it for local reference during validation; if they diverge, `AGENTS.md` takes precedence.
+
 Update only when the durable contract changes:
 - `agents/docs/api.md` for public API behavior.
 - `agents/db/schema.sql` and migration/rollback notes for DB schema.
