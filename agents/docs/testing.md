@@ -22,6 +22,7 @@ This file defines project-specific testing logistics. Use `agents/skills/test-dr
 | Build | |
 | Full validation | |
 | Coverage report | |
+| DESIGN.md lint | `npx @google/design.md lint agents/docs/design.md` (requires Node.js; optional — skip if unavailable) |
 
 ## Test Levels
 | Level | Purpose | Isolation | When to run |
