@@ -52,7 +52,7 @@ Fill only what applies during bootstrap.
 ## Source of Truth Map
 Read the smallest useful set. Use this table to decide what to open, not as a mandatory read list.
 
-| Area | File | Purpose | Read when | Approval needed? |
+| Area | File | Purpose | Read when | Ask user before editing? |
 |---|---|---|---|---|
 | Bootstrap | `agents/docs/bootstrap.md` | Skeleton-mode setup scope, readiness, and transition to project mode | Mode is `skeleton` or user requests bootstrap maintenance | No (template) |
 | Active task | `agents/task/backlog.md` | Queue and current task selection | Planning or implementing product work | No |
