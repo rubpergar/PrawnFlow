@@ -5,28 +5,64 @@ Customize before product implementation. If a command is unavailable, write `not
 This file defines project-specific testing logistics. Use `agents/skills/test-driven-development/SKILL.md` as the authority for the TDD workflow itself.
 
 ## Commands
+
+### Fast (TDD cycle / pre-commit)
 | Purpose | Command |
 |---|---|
 | Targeted unit | |
 | Full unit | |
-| Integration | |
-| E2E | |
 | Lint | |
 | Typecheck | |
+
+### Slow (pre-merge / CI)
+| Purpose | Command |
+|---|---|
+| Integration | |
+| E2E | |
 | Build | |
 | Full validation | |
+| Coverage report | |
+
+## Test Levels
+| Level | Purpose | Isolation | When to run |
+|---|---|---|---|
+| Unit | Business logic, pure functions, isolated components | No network, no DB, no IO | Every TDD cycle |
+| Integration | Interaction between layers (repository + service, API + DB) | Mock at external boundaries, real DB or testcontainers for project DB | Pre-commit / CI |
+| E2E | Full flow (UI → API → DB → response) | Real or staging environment | CI / pre-release |
+
+## Coverage
+| Item | Configuration |
+|---|---|
+| Tool | |
+| Threshold | |
+| Command | |
+| Excluded paths | |
+| Fail on below threshold | yes / no |
 
 ## Environment
 - Required services:
 - Required environment variables:
-- Test database/fixtures:
 - Reset/cleanup:
+
+## Fixtures
+| Type | Location | When used |
+|---|---|---|
+| Unit (factories, builders, mocks) | | Unit tests |
+| Integration (seed data, DB snapshots) | | Integration tests |
+| E2E (test users, sandbox data) | | E2E tests |
+| Shared utilities | | All levels |
+
+## External Services Strategy
+| Level | Strategy |
+|---|---|
+| Unit | Always mock or stub |
+| Integration | Project DB: real. Third-party APIs: mock or testcontainer |
+| E2E | Staging or sandbox environment |
 
 ## Test Locations
 - Unit:
 - Integration:
 - E2E:
-- Fixtures/utilities:
 
 ## TDD Coordination
 - Read and apply the TDD skill once before implementation code when the task changes behavior or refactors behavior-preserving code.
