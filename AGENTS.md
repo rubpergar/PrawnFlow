@@ -13,18 +13,16 @@ For skeleton-mode scope, required setup information, validation, and transition 
 Do not modify product source code or unrelated files unless the bootstrap docs explicitly allow it or the user explicitly requests it.
 
 ## Project
-Fill this section during bootstrap. Leave fields blank only while they are unknown or not configured yet.
-- Product:
-- Domain:
-- Users:
-- Goal:
+- Product: GambaDesk
+- Domain: Coworking space reservation system
+- Users: Customers (register, login, reserve desks) and Administrators (manage spaces, reservations)
+- Goal: Allow customers to book coworking desks and admins to manage spaces and reservation states
 
 ## Stack
-Fill only what applies during bootstrap.
-- Runtime/framework:
-- Package manager:
-- Database:
-- Test tools:
+- Runtime/framework: PHP 8.3 + Laravel 13 (Laravel Framework v13.9.0)
+- Package manager: Composer + npm
+- Database: SQLite
+- Test tools: PHPUnit (via php artisan test)
 - Deployment:
 - External services:
 
@@ -156,8 +154,11 @@ Non-validation commands:
 
 | Purpose | Command | Notes |
 |---|---|---|
-| Install | not configured | Package manager and lockfile policy |
-| Dev server | not configured | Port and env requirements |
+| Install PHP deps | composer install | |
+| Install JS deps | npm install | |
+| Dev server | php artisan serve | Port 8000 by default |
+| Dev assets | npm run dev | Vite dev server with HMR |
+| Build assets | npm run build | Vite builds to public/build/ |
 
 ## Code Conventions
 - Prefer existing patterns and local helpers.

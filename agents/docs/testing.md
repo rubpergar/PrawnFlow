@@ -9,19 +9,19 @@ This file defines project-specific testing logistics. Use `agents/skills/test-dr
 ### Fast (TDD cycle / pre-commit)
 | Purpose | Command |
 |---|---|
-| Targeted unit | |
-| Full unit | |
-| Lint | |
-| Typecheck | |
+| Targeted unit | `php artisan test --filter=<TestName>` |
+| Full unit | `php artisan test --testsuite=Unit` |
+| Lint | `./vendor/bin/pint --test` |
+| Typecheck | `not available` |
 
 ### Slow (pre-merge / CI)
 | Purpose | Command |
 |---|---|
-| Integration | |
-| E2E | |
-| Build | |
-| Full validation | |
-| Coverage report | |
+| Integration | `php artisan test --testsuite=Feature` |
+| E2E | `not available` (Laravel Dusk not installed) |
+| Build | `npm run build` |
+| Full validation | `php artisan test` |
+| Coverage report | `php artisan test --coverage` |
 | DESIGN.md lint | `npx @google/design.md lint agents/docs/design.md` (requires Node.js; optional — skip if unavailable) |
 
 ## Test Levels
@@ -34,16 +34,16 @@ This file defines project-specific testing logistics. Use `agents/skills/test-dr
 ## Coverage
 | Item | Configuration |
 |---|---|
-| Tool | |
-| Threshold | |
-| Command | |
-| Excluded paths | |
-| Fail on below threshold | yes / no |
+| Tool | PHPUnit (built-in) |
+| Threshold | not configured |
+| Command | `php artisan test --coverage` |
+| Excluded paths | vendor/, node_modules/ |
+| Fail on below threshold | no |
 
 ## Environment
-- Required services:
-- Required environment variables:
-- Reset/cleanup:
+- Required services: PHP 8.3+, SQLite
+- Required environment variables: `DB_CONNECTION=sqlite` (configured in .env)
+- Reset/cleanup: `rm database/database.sqlite && touch database/database.sqlite && php artisan migrate`
 
 ## Fixtures
 | Type | Location | When used |
@@ -61,9 +61,9 @@ This file defines project-specific testing logistics. Use `agents/skills/test-dr
 | E2E | Staging or sandbox environment |
 
 ## Test Locations
-- Unit:
-- Integration:
-- E2E:
+- Unit: `tests/Unit/`
+- Integration (Feature): `tests/Feature/`
+- E2E: not available
 
 ## TDD Coordination
 - Read and apply the TDD skill once before implementation code when the task changes behavior or refactors behavior-preserving code.
