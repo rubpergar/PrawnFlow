@@ -11,87 +11,86 @@ Validation: `npx @google/design.md lint agents/docs/design.md` (optional, requir
 ```yaml
 ---
 version: alpha
-name:
+name: GambaDesk
 colors:
-  background:
-  surface:
-  foreground:
-  muted:
-  border:
-  primary:
-  secondary:
-  success:
-  warning:
-  danger:
-  focus:
+  background: white
+  surface: gray-50
+  foreground: gray-900
+  muted: gray-500
+  border: gray-300
+  primary: indigo-600
+  secondary: gray-600
+  success: green-600
+  warning: yellow-500
+  danger: red-600
+  focus: indigo-500
 typography:
   body:
-    fontFamily:
-    fontSize:
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: 1rem
   heading:
-    fontFamily:
-    fontSize:
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: 1.5rem
 rounded:
-  sm:
-  md:
-  lg:
+  sm: 0.375rem
+  md: 0.5rem
+  lg: 0.75rem
 spacing:
-  xs:
-  sm:
-  md:
-  lg:
+  xs: 0.5rem
+  sm: 1rem
+  md: 1.5rem
+  lg: 2rem
 components:
   button:
-    backgroundColor:
-    textColor:
-    rounded:
+    backgroundColor: indigo-600
+    textColor: white
+    rounded: 0.5rem
   input:
-    backgroundColor:
-    borderColor:
-    rounded:
+    backgroundColor: white
+    borderColor: gray-300
+    rounded: 0.5rem
 ---
 ```
 
 ## Overview
 
-- **UI type:**
-- **Audience:**
-- **Tone:**
-- **Density:**
+- **UI type:** Dashboard web app
+- **Audience:** Coworking customers (mobile-first) and administrators (desk-heavy)
+- **Tone:** Professional, clean, trustworthy
+- **Density:** Moderate
 - **Accessibility target:** WCAG 2.2 AA (default)
-- **Dark mode:** supported / planned / not applicable
+- **Dark mode:** planned
 
 ### Visual Principles
 
-List 3-6 principles guiding reusable UI decisions.
-
 | Principle | Meaning | Applies to |
 |---|---|---|
-| | | |
+| Clarity first | Content and actions are immediately understandable | Navigation, forms, data tables |
+| Consistent spacing | Use Tailwind spacing scale; avoid arbitrary values | All layouts |
+| Mobile-first responsive | Design for small screens first, enhance for larger | All views |
+| Minimal visual noise | Reduce borders, shadows, and decorative elements | Cards, tables, forms |
 
 ## Colors
 
-Explain palette, token usage rules, and dark mode strategy.
+Uses Tailwind CSS default palette via `tailwind.config.js`. No custom color tokens.
 
-- Dark mode strategy:
-- Known exceptions:
+- Dark mode strategy: planned (Tailwind `dark:` variant)
+- Known exceptions: Breeze default views may use hardcoded colors
 
 ## Typography
 
-Describe hierarchy, font stack, and usage rules.
+Uses system font stack via Tailwind (`font-sans`).
 
 | Token | Font | Size | Weight | Line height | Usage |
 |---|---|---|---|---|---|
-| `body` | | | | | Default body |
-| `heading` | | | | | Headings |
+| `body` | Inter/system | 1rem (text-base) | 400 | 1.5 | Default body text |
+| `heading` | Inter/system | 1.5rem (text-2xl) | 600 | 1.25 | Page headings |
 
 ## Layout
 
-Define breakpoints, grid, and responsive behavior.
-
-- Layout strategy:
-- Max content width:
-- Breakpoints: sm / md / lg / xl
+- Layout strategy: Blade layouts with sidebar/topnav for dashboard, centered cards for auth
+- Max content width: `max-w-7xl` (80rem)
+- Breakpoints: sm (640px) / md (768px) / lg (1024px) / xl (1280px)
 
 ## Components
 
@@ -99,20 +98,20 @@ Define breakpoints, grid, and responsive behavior.
 
 | State | Visual rule | Accessibility rule |
 |---|---|---|
-| Default | | |
-| Hover | | Do not rely on hover-only affordances |
-| Focus | | Must be visible for keyboard users |
-| Disabled | | Must communicate unavailable state |
-| Error | | Must include text, not color alone |
+| Default | Tailwind default style | — |
+| Hover | opacity-90 or underline | Do not rely on hover-only affordances |
+| Focus | ring-2 ring-indigo-500 | Must be visible for keyboard users |
+| Disabled | opacity-50 cursor-not-allowed | Must communicate unavailable state |
+| Error | border-red-500 + text-red-600 | Must include text, not color alone |
 
 ### Component Catalog
 
 | Component | Variants | States | Notes |
 |---|---|---|---|
-| Button | | | |
-| Input | | | |
-| Card | | | |
-| Modal | | | |
+| Button | primary, secondary, danger, ghost, link | default, hover, focus, disabled | Based on Breeze default styles |
+| Input | text, email, password, select, textarea | default, focus, error, disabled | Tailwind forms plugin |
+| Card | default | — | White bg, rounded-lg, shadow-sm |
+| Modal | confirmation, form | — | Tailwind transition utility classes |
 
 ## Do's and Don'ts
 
