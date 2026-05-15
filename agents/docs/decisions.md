@@ -10,23 +10,19 @@ Before adding or changing an ADR, ask the user for approval and summarize the ti
 
 If new work conflicts with an accepted ADR, explain the conflict and ask whether to keep, rewrite, or update it.
 
-## Status Values
+## Statuses
 - `accepted`: approved by the user and active for future work.
 - `rejected`: considered and explicitly declined; keep only when remembering the rejection prevents repeated debate.
 
 ## Format
 
 ```md
-## ADR-000: Short decision title
+## ADR-000: Short title
 Date: YYYY-MM-DD
 Status: accepted | rejected
-
-### Context
-What recurring uncertainty, constraint, or tradeoff forced the decision? What options mattered?
-
-### Decision
-What rule should future work follow? Be specific enough that another agent can apply it.
-
-### Consequences
-What benefits, costs, constraints, or follow-up work does this create?
+Context: What recurring uncertainty, constraint, or tradeoff forced the decision? What options mattered?
+Decision: What rule should future work follow? Be specific enough that another agent can apply it.
+Consequences: What benefits, costs, constraints, or follow-up work does this create?
 ```
+
+## Log

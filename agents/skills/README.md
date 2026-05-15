@@ -2,18 +2,18 @@
 
 This directory contains optional agent skills used by the skeleton. Skills are loaded only when their trigger matches the task.
 
-`skills-lock.json` is the technical install record: it stores the upstream source, source path, and computed hash for each active skill. Keep it unless the skill installation mechanism is replaced, because this README is a human-facing license/provenance summary rather than a lock file.
+The canonical skills lock file is `skills-lock.json` in the repository root. It is the technical install record: it stores the upstream source, source path, and computed hash for each active skill. Keep it unless the skill installation mechanism is replaced, because this README is a human-facing license/provenance summary rather than a lock file.
 
 ## License Policy
 - Keep each skill's original license and attribution files with the skill.
-- Before modifying a skill, check its front matter, local `LICENSE`/`NOTICE` files, this README, and `skills-lock.json`.
+- Before modifying a skill, check its front matter, local `LICENSE`/`NOTICE` files, this README, and the root `skills-lock.json`.
 - Internal company adaptations are allowed when the upstream license permits modification, but keep attribution and mark substantial changes.
 - Do not redistribute, publish, sell, or deliver this skeleton externally until all included skill licenses and notices have been reviewed.
 - If a skill has no local license file but its upstream repository license is known, preserve the upstream reference here and consider copying the license file into the skill directory.
 - This file is not legal advice; it is a working checklist so the agent does not assume permissions that are not present or recorded.
 
 ## Modification Notes
-For substantial edits to a third-party skill, add a short note near the top of the modified skill or in a nearby `NOTICE.md`:
+For substantial edits to a third-party skill, add a short note near the top of the modified skill:
 
 ```md
 ## Internal Modifications
@@ -34,26 +34,18 @@ Original source/license: <source and license>
 - Upstream license checked: MIT License in `https://github.com/wshobson/agents/blob/main/LICENSE`.
 - Practical status: modification and internal commercial use are allowed under MIT; add local attribution/license reference before external redistribution.
 
-### `conventional-commit`
-- Local path: `agents/skills/conventional-commit/`
-- Lock source: not present in `skills-lock.json`.
-- Lock source path: not recorded.
-- Local license signal: no local license/front matter license found.
-- Upstream license checked: not available from current repository metadata.
-- Practical status: treat as internal-only until provenance is recorded, or rewrite it as original project guidance because the content is small and generic.
-
 ### `context7-mcp`
 - Local path: `agents/skills/context7-mcp/`
-- Lock source: local user-level skill copy.
-- Lock source path: `C:/Users/rupg2/.agents/skills/context7-mcp/SKILL.md`.
+- Lock source: `upstash/context7` (GitHub; see `skills-lock.json`).
+- Lock source path (local copy): `<user-home-dir>/.agents/skills/context7-mcp/SKILL.md` (resolved during installation).
 - Local license signal: no local license/front matter license found.
 - Upstream license checked: not available from current repository metadata.
 - Practical status: treat as internal-only until provenance is recorded. This skill requires Context7 MCP tooling configured in the agent runtime; do not store API keys or credentials in this repository.
 
 ### `find-skills`
 - Local path: `agents/skills/find-skills/`
-- Lock source: local user-level skill copy.
-- Lock source path: `C:/Users/rupg2/.agents/skills/find-skills/SKILL.md`.
+- Lock source: `vercel-labs/skills` (GitHub; see `skills-lock.json`).
+- Lock source path (local copy): `<user-home-dir>/.agents/skills/find-skills/SKILL.md` (resolved during installation).
 - Local license signal: no local license/front matter license found.
 - Upstream license checked: not available from current repository metadata.
 - Practical status: treat as internal-only until provenance is recorded.

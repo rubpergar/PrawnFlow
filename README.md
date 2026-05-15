@@ -33,43 +33,15 @@ Reusable starter for projects that want an agent to work with spec-driven develo
 5. Add exactly one task under `## Current` in `agents/task/backlog.md` when implementation should begin.
 6. Create and approve `agents/task/TASK-XXX-plan.md`.
 7. Create `agents/task/TASK-XXX-checklist.md`.
-8. Load the TDD skill for implementation, validate against `agents/docs/DoD.md`, then ask before backlog closeout/archive moves.
+8. Read and apply the TDD skill for implementation, validate against `agents/docs/DoD.md`, then ask before backlog closeout/archive moves.
 
-## Core Rule
+## Skills Installation & Provenance
 
-Product work requires:
-- one current backlog task,
-- an approved task-specific plan,
-- a task-specific checklist,
-- TDD unless the approved plan documents an exception.
+Skills in `agents/skills/` come from upstream sources declared in `skills-lock.json`. Some skills (e.g. `context7-mcp`, `find-skills`) are installed as local copies from GitHub and their lock source paths may reference the installing user's home directory (`~/.agents/skills/...`). If you clone this repository on a new machine:
 
-Template maintenance may be done directly only when the user explicitly asks to improve the agent model itself.
+1. Ensure your agent runtime (e.g. OpenCode) has the required MCP tools for each skill.
+2. Re-run the skill installer or verify that skill files exist in the expected paths.
+3. Update `agents/skills/README.md` lock source paths to match your setup if they differ.
+4. Do not commit local credential files (API keys, `.env`, tokens) to this repository.
 
-## Request Routing
-
-| Request | Behavior |
-|---|---|
-| Feature, bug fix, refactor | Use SDD + TDD |
-| Docs-only project change | Update relevant source-of-truth docs; no TDD |
-| Template maintenance | Edit template files directly when requested |
-| Review/audit | Report findings first; edit only if requested |
-| Exploration/planning | Gather context and propose next steps; do not implement unless asked |
-
-## Context Budget
-
-Keep reads narrow:
-- Implementation: `AGENTS.md`, backlog current entry, task plan, task checklist, TDD skill, `DoD.md`, `testing.md`, plus affected source-of-truth docs.
-- API only: add `agents/docs/api.md`.
-- DB only: add `agents/db/*`.
-- UI only: add `agents/docs/design.md` and one matching UI skill.
-- Archive only: read when history affects the current task.
-
-## Ready Checklist
-
-The template is ready for a real project when:
-- `AGENTS.md` has real commands, stack, and security boundaries.
-- `agents/docs/testing.md` has targeted and full validation commands.
-- Unused docs are marked `Not applicable`.
-- The backlog has no more than one current task.
-- Plan/checklist templates match the team's expected level of detail.
-- Security-sensitive areas and public API/DB/UI ownership are explicit.
+For full SDD workflow, operating rules, commands, and source-of-truth governance, see [`AGENTS.md`](AGENTS.md).

@@ -1,25 +1,26 @@
 # AGENTS.md
 
-This repository is an agent skeleton. Blank fields are intentional until the skeleton is copied into a real project.
+This repository starts as an agent skeleton and can be prepared for active project work.
 
-## Template State
-- Mode: `skeleton | project`
-- Current mode: `skeleton`
-- Blank project fields mean `unknown / not configured yet`; never infer or invent them.
-- In `skeleton` mode, template and agent-maintenance changes may be made directly when explicitly requested by the user.
-- In `project` mode, fill the sections below before product implementation starts.
-- If required project context is blank during product work, ask the user for the missing value or record it as an approved assumption in the task plan.
-- Do not replace blanks with guessed values from package files, filenames, or common conventions unless the user approves that inference.
+## Mode
+
+Current mode: `skeleton`.
+
+This repository is in agent bootstrap mode. Product feature implementation is not allowed.
+
+For skeleton-mode scope, required setup information, validation, and transition to project mode, follow `agents/docs/bootstrap.md`. After transition to project mode, the archived bootstrap is at `agents/task/archive/bootstrap-*.md` (historical reference only).
+
+Do not modify product source code or unrelated files unless the bootstrap docs explicitly allow it or the user explicitly requests it.
 
 ## Project
-Fill this section after copying the template into a real project. Leave fields blank while the repository is only being maintained as a skeleton.
+Fill this section during bootstrap. Leave fields blank only while they are unknown or not configured yet.
 - Product:
 - Domain:
 - Users:
 - Goal:
 
 ## Stack
-Fill only what applies.
+Fill only what applies during bootstrap.
 - Runtime/framework:
 - Package manager:
 - Database:
@@ -28,14 +29,18 @@ Fill only what applies.
 - External services:
 
 ## Operating Rules
+- In skeleton mode, editing agent configuration files (`AGENTS.md`, `agents/**`, `.opencode/**`) does not require user approval. The Source of Truth Map approval column only applies in project mode.
+- Before modifying a source-of-truth document in project mode, check the **Approval needed?** column in the Source of Truth Map to determine if explicit approval is needed.
 - Product behavior changes require the SDD workflow below.
 - Template/agent-maintenance changes may be done directly when the user explicitly asks.
 - Skeleton maintenance is not product implementation and does not require a backlog task, plan, or checklist unless the user asks for that workflow.
+- New project initialization in `skeleton` mode requires explicit user approval and must follow `agents/docs/bootstrap.md`.
 - Exploratory, advisory, review-only, or planning-only requests do not change code unless the user asks for edits.
 - Keep changes scoped to the active task or the explicitly requested maintenance.
 - Prefer updating stable source-of-truth docs over duplicating instructions.
 - Project source-of-truth docs and approved task plans override skill guidance when they conflict.
 - Treat blank fields, placeholder markers, and `not available` commands as missing configuration, not as instructions to improvise.
+- Archived bootstrap documents are historical references only and must not be followed unless the user explicitly requests bootstrap maintenance or review.
 
 ## Token Budget
 - Communicate with the user in Spanish unless they request another language.
@@ -47,28 +52,31 @@ Fill only what applies.
 ## Source of Truth Map
 Read the smallest useful set. Use this table to decide what to open, not as a mandatory read list.
 
-| Area | File | Purpose | Read when |
-|---|---|---|---|
-| Active task | `agents/task/backlog.md` | Queue and current task selection | Planning or implementing product work |
-| Task plan | `agents/task/TASK-XXX-plan.md` | Approved scope and behavior contract | Implementing or validating the active task |
-| Task checklist | `agents/task/TASK-XXX-checklist.md` | Execution ledger and resume point | Implementing or resuming the active task |
-| Plan template | `agents/task/plan.md` | Template for task-specific plans | Creating a new task plan |
-| Checklist template | `agents/task/checklist.md` | Template for task-specific checklists | Creating a new task checklist |
-| Acceptance | `agents/docs/DoD.md` | Definition of done and closeout gates | Before validation and closeout |
-| Testing | `agents/docs/testing.md` | Project-specific test commands, locations, fixtures, and validation rules | Adding/running tests or validating work |
-| Decisions | `agents/docs/decisions.md` | Durable product, technical, and workflow decisions recorded as ADRs | Planning product work, a durable decision is needed, or past rationale matters |
-| API contracts | `agents/docs/api.md` | Public routes, payloads, errors, compatibility | API routes, clients, payloads, or contracts are affected |
-| DB schema | `agents/db/schema.sql` | Current database structure | Persistence, migrations, queries, or schema are affected |
-| DB domain | `agents/db/domain.md` | Domain vocabulary, relationships, business rules | Data model or business rules are affected |
-| UI design | `agents/docs/design.md` | Reusable UI rules, tokens, components, accessibility | UI, design system, or reusable UX behavior is affected |
-| Archive | `agents/task/archive/` | Completed task plans and checklists | Current work depends on historical task context |
+| File | Area | Purpose | Read when | Approval needed to edit? |
+|---|---|---|---|---|
+| `agents/docs/bootstrap.md` | Bootstrap | Skeleton setup and project transition | skeleton mode or bootstrap maintenance | No |
+| `agents/task/backlog.md` | Active task | Task queue and current selection | Planning or implementing product work | No |
+| `agents/task/TASK-XXX-plan.md` | Task plan | Scope and behavior contract | Implementing or validating task | No |
+| `agents/task/TASK-XXX-checklist.md` | Task checklist | Execution ledger and resume point | Implementing or resuming task | No |
+| `agents/task/plan.md` | Plan template | Template for task plans | Creating a new task plan | No |
+| `agents/task/checklist.md` | Checklist template | Template for checklists | Creating a new checklist | No |
+| `agents/docs/DoD.md` | Acceptance | Definition of done | Before validation and closeout | Yes |
+| `agents/docs/testing.md` | Testing | Test commands, fixtures, validation rules | Adding/running tests or validating work | Only if validation changes |
+| `agents/docs/decisions.md` | Decisions | ADR records | Planning, durable decision, or past rationale matters | No |
+| `agents/docs/api.md` | API contracts | Routes, payloads, errors, compatibility | API routes, clients, or payloads affected | No |
+| `agents/db/schema.sql` | DB schema | Current structure. Override path during bootstrap if project has its own. | Persistence, migrations, queries, or schema affected | No |
+| `agents/db/changes.sql` | DB change log | Ordered SQL changes with rollback notes. Override path during bootstrap if project has its own. | Persistence, migrations, queries, or schema affected | No |
+| `agents/db/domain.md` | DB domain | Vocabulary, entities, business rules | Data model or business rules affected | No |
+| `agents/docs/design.md` | UI design | Reusable UI tokens, components, a11y | UI, design system, or UX behavior affected | No |
+| `agents/docs/dependency-policy.md` | Dependencies | Rules for new dependencies | Adding or evaluating a dependency | Yes |
+| `agents/docs/debt.md` | Debt | Out-of-scope findings and bugs | Found something outside active task scope | Yes |
 
 ## Skills
 Use a skill only when its trigger matches the request. Project stack and source-of-truth docs override skill assumptions.
 
 | Skill | Path | Use when | Avoid when |
 |---|---|---|---|
-| Test-Driven Development | `agents/skills/test-driven-development/SKILL.md` | Load once before implementation code for features, bug fixes, behavior changes, or behavior-preserving refactors; it is the TDD methodology authority | Docs-only, planning-only, config-only changes with no behavior |
+| Test-Driven Development | `agents/skills/test-driven-development/SKILL.md` | Read and apply once before implementation code for features, bug fixes, behavior changes, or behavior-preserving refactors; it is the TDD methodology authority | Docs-only, planning-only, config-only changes with no behavior |
 | Interface Design | `agents/skills/interface-design/SKILL.md` | Designing, implementing, improving, or reviewing UI/UX, frontend visuals, responsive behavior, interaction states, forms, navigation, dashboards, components, and accessibility tied to UI | Backend-only work, SEO-only audits, security review, brand identity-only work, image generation, or measured performance optimization |
 | SEO Audit | `agents/skills/seo-audit/SKILL.md` | Auditing public pages for crawlability, indexation, metadata, content structure, Core Web Vitals, internal links, schema, or rankings | Private dashboards, backend-only work, UI polish without SEO scope |
 | Code Review Excellence | `agents/skills/code-review-excellence/SKILL.md` | Reviewing code changes, PRs, architecture-sensitive diffs, or when explicitly asked for a code review | Implementing code directly, formatting-only checks, or replacing automated lint/tests |
@@ -76,10 +84,11 @@ Use a skill only when its trigger matches the request. Project stack and source-
 | Performance | `agents/skills/performance/SKILL.md` | Auditing or improving page load, Core Web Vitals, bundle/resource loading, runtime jank, images, fonts, caching, or web performance regressions | Premature optimization, backend-only work with no web performance impact, or memoization/refactors without measured bottlenecks |
 | Context7 MCP | `agents/skills/context7-mcp/SKILL.md` | Library, framework, SDK, API, CLI, or cloud-service documentation and examples | Business-logic debugging, refactoring, review, or non-library programming concepts |
 | Find Skills | `agents/skills/find-skills/SKILL.md` | Discovering or installing agent skills for a capability | Direct implementation when no skill discovery is requested |
-| Conventional Commit | `agents/skills/conventional-commit/SKILL.md` | Only when the user asks to make a commit | Any request that does not explicitly ask for a commit |
 
 Frontend precedence: use only `interface-design` for UI/UX, frontend visuals, responsive behavior, interaction states, forms, navigation, components, accessibility tied to UI, and UI review. Do not load separate UI skills.
 Quality precedence: use `security-review` for exploitable security analysis, `performance` for measured web performance work, and `code-review-excellence` for general code review. UI accessibility is handled by `interface-design` unless the project later adds a separate specialist accessibility workflow. Project source-of-truth docs and approved task plans override skill assumptions.
+
+"Read and apply" means: open the skill file and follow its instructions. If your runtime supports formal skill loading, you may use that mechanism instead — the outcome is the same.
 
 ## SDD Workflow
 Product implementation starts only when there is exactly one task under `## Current` in `agents/task/backlog.md`.
@@ -92,22 +101,24 @@ Product implementation starts only when there is exactly one task under `## Curr
    - Read relevant accepted ADRs in `agents/docs/decisions.md` before proposing behavior or implementation choices.
    - Create/update `agents/task/TASK-XXX-plan.md` from `agents/task/plan.md`.
    - Resolve behavior, data, security, API, and user-facing UX questions before implementation.
+   - If the task affects the database, record DB impact, migration, rollback, compatibility, validation, recovery, and required doc updates in the task plan.
    - If a durable decision may be needed, include an ADR proposal in the plan instead of writing directly to `agents/docs/decisions.md`.
    - Do not implement until the user approves the task-specific plan.
 
 3. Checklist
    - Create/update `agents/task/TASK-XXX-checklist.md` from `agents/task/checklist.md`.
    - Derive checklist items from the approved plan only.
+   - If the task affects the database, include checklist items for DB schema updates, DB change log updates, backup/recovery checks, and migration validation.
 
 4. Implement with TDD
-   - Load `agents/skills/test-driven-development/SKILL.md` once at the start of implementation and follow it for the red/green/refactor process.
+   - Read and apply `agents/skills/test-driven-development/SKILL.md` once at the start of implementation and follow it for the red/green/refactor process.
    - Read the approved task plan, checklist, `agents/docs/testing.md`, and relevant source-of-truth files.
    - Use `agents/docs/testing.md` only for project-specific commands, locations, fixtures, and validation requirements.
    - Mark checklist items as they are completed.
    - If test-first work is not feasible, stop unless the exception is already documented in the approved plan and checklist.
 
 5. Validate
-   - Run targeted tests, then full validation commands when available.
+   - Run targeted tests, then full validation commands. See `agents/docs/testing.md` for the actual commands.
    - Run lint/typecheck/build when relevant.
    - Report unrelated failures before broadening scope.
    - Check `agents/docs/DoD.md`.
@@ -115,8 +126,9 @@ Product implementation starts only when there is exactly one task under `## Curr
 6. Document
    - Update source-of-truth docs only when the durable project contract changes.
    - API changes update `agents/docs/api.md`.
-   - DB changes update `agents/db/schema.sql` and rollback/migration notes.
+   - DB changes update the DB schema and DB change log files declared in the Source of Truth Map, plus `agents/db/domain.md` when the domain model or business rules materially change.
    - Reusable UI rules update `agents/docs/design.md`.
+   - Dependency changes update `agents/docs/dependency-policy.md` when the policy itself changes, and `agents/docs/decisions.md` when a new dependency ADR is recorded.
    - Lasting decisions may update `agents/docs/decisions.md` only after explicit user approval.
 
 7. Close out
@@ -127,26 +139,25 @@ Product implementation starts only when there is exactly one task under `## Curr
 ## Boundaries
 - Do not invent missing requirements.
 - Do not change unrelated files.
-- Do not perform broad refactors during feature work.
-- Do not introduce dependencies without documenting why.
+- Do not perform broad refactors during feature work. If something outside scope is found, register it in `agents/docs/debt.md` instead of modifying it.
+- Do not introduce dependencies without following `agents/docs/dependency-policy.md`.
 - Do not change public APIs unless the approved plan says so.
 - Do not change authentication, authorization, payments, migrations, or other security-sensitive behavior without explicit plan coverage.
 - Do not delete tests unless replacing them with equivalent or better coverage.
-- Do not change DB schema without migration and rollback notes.
+- Do not change DB schema without updating the DB change log file declared in the Source of Truth Map with forward migration SQL and rollback notes.
+- If a task affects the database, the task plan must cover migration approach, rollback or irreversibility, compatibility with persisted data, operational risks, validation, backup/recovery expectations, and required doc updates.
+- Prefer additive or staged DB changes for existing systems when direct destructive changes would risk persisted data or mixed-version deployments.
 - Never expose secrets, tokens, credentials, private keys, or production-like sensitive data.
 
 ## Commands
-Replace skeleton values during project setup. Use `not available` when a command does not exist, with a short fallback note.
+Validation commands (test, lint, typecheck, build, full validation) are defined in `agents/docs/testing.md`.
+
+Non-validation commands:
 
 | Purpose | Command | Notes |
 |---|---|---|
 | Install | not configured | Package manager and lockfile policy |
 | Dev server | not configured | Port and env requirements |
-| Targeted tests | not configured | Example command required |
-| Full test suite | not configured | Required services/fixtures |
-| Lint | not configured | Required before closeout when available |
-| Typecheck | not configured | Required before closeout when available |
-| Build | not configured | Required for UI/API changes when available |
 
 ## Code Conventions
 - Prefer existing patterns and local helpers.

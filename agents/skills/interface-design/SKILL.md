@@ -3,19 +3,19 @@ name: interface-design
 description: Use only for UI/UX work: designing, implementing, improving, or reviewing visible product interfaces, responsive layouts, components, forms, navigation, dashboards, interaction states, and accessibility tied to UI. Use for greenfield UI, integration into existing design systems, explicit redesigns, and UI reviews. Do not use for backend-only, database-only, scripts, SEO audits, security review, brand identity-only work, image generation, or measured performance optimization.
 ---
 
+## Internal Modifications
+
+Modified by: RPG
+Date: 2026-04-30
+Purpose: Consolidated UI guidance into a selective, checklist-first internal workflow.
+Distribution: Internal use only unless licenses are reviewed before redistribution.
+Original source/license: see `agents/skills/README.md`.
+
 # Interface Design
 
 This is the single UI skill for the skeleton. It consolidates and replaces the former `ui-ux-pro-max`, `frontend-design`, `web-design-guidelines`, and `accessibility` skills to reduce overlap, token usage, and activation ambiguity.
 
 Use this skill when a task changes how an interface looks, feels, moves, reads, responds, or is operated by users.
-
-## Internal Modifications
-
-Modified by: Thinc/PrawnFlow skeleton
-Date: 2026-04-30
-Purpose: Consolidated UI guidance into a selective, checklist-first internal workflow.
-Distribution: Internal use only unless licenses are reviewed before redistribution.
-Original source/license: see `agents/skills/README.md`.
 
 ## Core Directives
 
