@@ -48,10 +48,10 @@ This file defines project-specific testing logistics. Use `agents/skills/test-dr
 ## Fixtures
 | Type | Location | When used |
 |---|---|---|
-| Unit (factories, builders, mocks) | | Unit tests |
-| Integration (seed data, DB snapshots) | | Integration tests |
-| E2E (test users, sandbox data) | | E2E tests |
-| Shared utilities | | All levels |
+| Unit (factories, builders, mocks) | `database/factories/` | Unit tests |
+| Integration (seed data, DB snapshots) | `database/seeders/` | Integration tests |
+| E2E (test users, sandbox data) | not available | E2E tests |
+| Shared utilities | `tests/` | All levels |
 
 ## External Services Strategy
 | Level | Strategy |
