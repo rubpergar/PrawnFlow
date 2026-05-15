@@ -1,14 +1,12 @@
 # AGENTS.md
 
-This repository starts as an agent skeleton and can be prepared for active project work.
-
 ## Mode
 
-Current mode: `skeleton`.
+Current mode: `project`.
 
-This repository is in agent bootstrap mode. Product feature implementation is not allowed.
+This repository is an active project. Use the SDD/TDD workflow and the source-of-truth documents under `agents/**`.
 
-For skeleton-mode scope, required setup information, validation, and transition to project mode, follow `agents/docs/bootstrap.md`. After transition to project mode, the archived bootstrap is at `agents/task/archive/bootstrap-*.md` (historical reference only).
+Bootstrap is complete. Archived bootstrap documents are historical references only and must not be followed unless the user explicitly requests bootstrap maintenance or review.
 
 Do not modify product source code or unrelated files unless the bootstrap docs explicitly allow it or the user explicitly requests it.
 
@@ -167,4 +165,17 @@ Non-validation commands:
 - Move detailed conventions into source-of-truth docs when they become durable project rules.
 
 ## Project Structure
-Add only primary routes with their purpose.
+
+| Path | Purpose |
+|---|---|
+| `routes/web.php` | Web routes (public pages, dashboard, profile) |
+| `routes/auth.php` | Auth routes (login, register, password, verification) |
+| `app/Http/Controllers/` | Controllers (Auth/, ProfileController) |
+| `app/Models/` | Eloquent models (User) |
+| `resources/views/` | Blade views (auth, layouts, dashboard, profile, components) |
+| `database/migrations/` | DB migrations (users, cache, jobs tables) |
+| `database/factories/` | Model factories |
+| `database/seeders/` | Database seeders |
+| `tests/Unit/` | Unit tests |
+| `tests/Feature/` | Feature/integration tests |
+| `config/` | Laravel configuration files |
